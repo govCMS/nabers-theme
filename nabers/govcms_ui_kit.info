@@ -1,0 +1,31 @@
+screenshot  = screenshot.png
+name        = Nabers 2018
+description = Theme for Nabers. Built from govCMS UI Kit theme (based on GOV.AU UI-Kit).
+core        = 7.x
+
+stylesheets[only screen][] = dist/css/screen_styles.css
+stylesheets[print][] = dist/css/print_styles.css
+
+scripts[] = vendor/modernizr/modernizr-custom.js
+scripts[] = vendor/object-fit-images/ofi.browser.js
+scripts[] = vendor/countup/countUp.js
+scripts[] = vendor/jquery-validate/jquery.validate.min.js
+scripts[] = dist/js/script.js
+
+regions[header]            = Header
+regions[navigation]        = Navigation bar
+regions[mobile_navigation] = Mobile navigation bar
+regions[highlighted]       = Highlighted
+regions[help]              = Help
+regions[content]           = Content
+regions[sidebar_first]     = Sidebar
+regions[sidebar_second]    = Above Footer
+regions[footer]            = Footer
+regions[below_footer]      = Below Footer
+regions[bottom]            = Page bottom
+
+regions[page_top]       = Page top
+regions[page_bottom]    = Page bottom
+
+settings[govcms_ui_kit_header_title] = govCMS
+settings[govcms_ui_kit_override_image_styles] = 1

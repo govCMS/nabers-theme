@@ -1,0 +1,28 @@
+.skip-to {
+  position: relative;
+  z-index: 200;
+  a {
+    border: 0;
+    height: 1px;
+    line-height: 1em;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    border-radius: 1px;
+    text-decoration: none;
+    &:focus, &:active {
+      font-family: $primary-font;
+      background-color: $primary_1;
+      color: $white;
+      height: auto;
+      margin: 0;
+      overflow: visible;
+      width: auto;
+      top: 10px;
+      left: 10px;
+      padding: 0.4em 0.8em;
+    }
+  }
+}

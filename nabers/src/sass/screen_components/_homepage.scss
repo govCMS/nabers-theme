@@ -1,0 +1,580 @@
+.pane-title {
+  @include large-title;
+}
+
+// =========================================================
+// SLIDER
+// =========================================================
+$nab-slider-image-offset: rem(560px);
+$nab-slider-image-height: rem(755px);
+$nab-slider-text-offset: rem(498px);
+#block-views-slideshow-block {
+  h2 {
+    @include visually-hidden;
+  }
+}
+
+.view-slideshow {
+  @include primary-font-book;
+  overflow: hidden;
+  padding-bottom: rem(90px);
+  .view-content {
+    &>ul {
+      padding: 0;
+      margin: 0;
+      &>li {
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+  .node-slide {
+    @include center-column($desktop_column);
+    padding-left: 0;
+    padding-right: 0;
+    @include breakpoint(desktop) {
+      min-height: $nab-slider-image-height;
+    }
+  }
+  .field-name-field-slide-image {
+    @include breakpoint(tablet) {
+      margin-right: rem(30px);
+    }
+    @include breakpoint(desktop) {
+      position: absolute;
+      margin-left: $nab-slider-image-offset * -1;
+      margin-right: 0;
+    }
+    img {
+      @include breakpoint(desktop) {
+        height: $nab-slider-image-height;
+      }
+    }
+  }
+  .banner-description-holder {
+    position: relative;
+    z-index: 1;
+    @include breakpoint(tablet) {
+      margin-left: rem(30px);
+    }
+    @include breakpoint(desktop) {
+      padding-top: rem(84px);
+      margin-left: $nab-slider-text-offset;
+    }
+  }
+  .banner-description-intro {
+    background-color: rgba($background-grey, .9);
+    position: relative;
+    margin-top: rem(-30px);
+    padding: rem(33px) rem(22px);
+    @include breakpoint(tablet) {
+      padding: rem(62px) rem(84px);
+      margin-top: rem(-64px);
+    }
+    @include breakpoint(desktop) {
+      margin-top: 0;
+    }
+    &::before {
+      content: '';
+      display: block;
+      width: 100vw;
+      background-color: rgba($background-grey, .9);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: calc(100% + #{$nab-slider-text-offset + $nab-slider-image-offset});
+    }
+    &::after {
+      content: '';
+      display: block;
+      width: 100vw;
+      background-color: rgba($background-grey, .9);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 100%;
+    }
+    p {
+      margin-bottom: 0;
+      color: $default-blue;
+      line-height: 1.36em;
+      font-size: rem(38px);
+      text-align: center;
+      @include breakpoint(tablet) {
+        text-align: left;
+        font-size: rem(50px);
+        line-height: 1;
+      }
+      @include breakpoint(desktop) {
+        max-width: rem(435px);
+      }
+    }
+  }
+  .banner-description-panel {
+    background-color: rgba($default-blue, .9);
+    box-sizing: border-box;
+    color: white;
+    padding: rem(33px) rem(22px);
+    text-align: center;
+    @include breakpoint(tablet) {
+      text-align: left;
+      padding: rem(48px) rem(116px);
+      margin-left: rem(151px - 30px);
+    }
+    @include breakpoint(desktop) {
+      margin-left: rem(157px);
+      width: rem(644px);
+    }
+    h3 {
+      @include visually-hidden;
+    }
+    p {
+      font-size: rem(20px);
+    }
+    .field-name-field-read-more {
+      a {
+        @include button-invert-white;
+        width: auto;
+      }
+    }
+  }
+}
+
+// =========================================================
+// HOMEPAGE BLOGS AND NEWS LISTSING
+// =========================================================
+.pane-latest-news {
+  @include primary-font-book;
+  .pane-title {
+    @include center-column($desktop_column);
+    @include breakpoint(tablet) {
+      margin-bottom: rem(22px);
+    }
+    @include breakpoint(desktop) {
+      margin-bottom: rem(76px);
+    }
+  }
+  .view-latest-news.view-display-id-block_1 {
+    margin-bottom: rem(76px);
+    @include breakpoint(tablet) {
+      margin-bottom: rem(51px);
+    }
+    @include breakpoint(desktop) {
+      margin-bottom: rem(179px);
+    }
+    .view-content {
+      @include center-column($desktop_column);
+      display: flex;
+      flex-wrap: wrap;
+      .views-row {
+        @include generic-view-row-base;
+        @include generic-view-row-3;
+        .node {
+          @include listing-component-wrapper;
+          display: flex;
+          flex-wrap: wrap;
+          height: auto;
+          &.has-thumbnail {
+            padding-top: $listing_component_image_height;
+            .field-type-image {
+              @include listing-component-image;
+            }
+            h2 {
+              margin-top: rem(22px);
+              margin-bottom: rem(22px);
+              @include breakpoint(desktop) {
+                margin-top: rem(40px);
+              }
+            }
+          }
+        }
+        h2 {
+          @include listing-component-heading;
+          margin-top: 0;
+        }
+        .field-type-datetime, .submitted {
+          @include listing-component-subtext;
+        }
+        .field-name-body {
+          @include listing-component-body;
+        }
+      }
+    }
+    .more-link {
+      @include center-column($desktop_column);
+      text-align: center;
+      @include breakpoint(desktop) {
+        margin-top: rem(40px);
+      }
+      a {
+        @include button-invert-dark;
+        display: inline-block;
+        width: auto;
+      }
+    }
+  }
+}
+
+.pane-bean-homepage-featured-content {
+  @include body-column;
+  @include default-section-padding;
+  @include primary-font-book;
+  overflow: hidden;
+  .featured-content {
+    color: $white;
+    position: relative;
+    @include center-column($desktop_column);
+    &__image {
+      @include breakpoint(tablet) {
+        position: relative;
+        margin-left: rem(-70px);
+      }
+      @include breakpoint(large_tablet) {
+        position: absolute;
+        margin-left: rem(-200px);
+      }
+      img {
+        display: block;
+      }
+    }
+    &__text {
+      background-color: rgba(0, 145, 179, 0.9);
+      padding: $default_padding;
+      @include breakpoint(tablet) {
+        padding: rem(50px) rem(100px);
+        margin-top: rem(-15px);
+        z-index: 1;
+        position: relative;
+        margin-right: rem(-20px);
+      }
+      @include breakpoint(large_tablet) {
+        padding: rem(80px);
+        max-width: rem(640px);
+        float: right;
+        position: relative;
+        margin-top: rem(80px);
+        margin-right: rem(-200px);
+      }
+      &>div {
+        @include breakpoint(tablet) {
+          width: 80%;
+        }
+      }
+    }
+    &__title {
+      @include medium-title;
+      color: $white;
+      margin-bottom: rem(18px);
+      font-weight: 500;
+    }
+    &__subtitle {
+      margin-bottom: rem(36px);
+    }
+    &__call_to_action {
+      a {
+        @include button-invert-white;
+        display: inline;
+      }
+    }
+  }
+}
+
+.pane-bean-homepage-statistics {
+  @include primary-font-book;
+  .pane-title {
+    font-size: rem(30px);
+  }
+  .pane-content {
+    @include clearfix;
+    @include center-column($desktop_column);
+    background: url("../images/svg/cityscape-background.svg") no-repeat center 102%;
+    background-size: contain;
+    padding-bottom: 43%;
+    @include breakpoint(tablet) {
+      padding-top: rem(50px);
+      background-size: 95%;
+    }
+    @include breakpoint(large_tablet) {
+      background-size: auto;
+      padding-bottom: rem(340px);
+    }
+    .field-name-field-statistics {
+      @include breakpoint(tablet) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      &>.field-items>.field-item {
+        border-top: 3px solid #cccccc;
+        padding-top: rem(50px);
+        margin: rem(50px) 0 0;
+        width: 100%;
+        text-align: center;
+        @include breakpoint(tablet) {
+          width: 31.4%;
+          float: left;
+          margin: 0 rem(10px);
+          text-align: left;
+        }
+        @include breakpoint(large_tablet) {
+          width: 27%;
+          max-width: rem(270px);
+          margin: 0 rem(40px);
+        }
+        &:first-child {
+          margin-left: 0;
+        }
+        &:last-child {
+          margin-right: 0;
+          margin-bottom: rem(50px);
+        }
+      }
+      .paragraphs-item-statistics-data {
+        .content {
+          color: $default-blue;
+        }
+        .field-name-field-statistics-figure {
+          font-size: rem(50px);
+          line-height: 0.7;
+          .field-item {
+            transition: opacity 2s ease-out 0s, color 2.2s ease-out 0s !important;
+            opacity: 0;
+            .no-js &, &.faded {
+              opacity: 1;
+            }
+          }
+        }
+        .field-name-field-statistics-figure-suffix {
+          font-size: rem(30px);
+        }
+        .field-name-field-statistics-figure-desc {
+          margin-top: rem(15px);
+        }
+      }
+    }
+    .field-name-field-call-to-action-link {
+      text-align: center;
+      padding: 0;
+      @include breakpoint(large_tablet) {
+        padding: rem(15px) 0;
+      }
+      a {
+        @include button-invert;
+        display: inline;
+      }
+    }
+  }
+}
+
+.pane-bean-homepage-tools {
+  background-color: $default-blue;
+  color: $white;
+  @include default-section-padding(60px);
+  @include primary-font-book;
+  @include breakpoint(tablet) {
+    @include default-section-padding;
+  }
+  @include breakpoint(large_tablet) {
+    @include default-section-padding(200px);
+  }
+  .pane-title {
+    @include large-title;
+    color: $white;
+    margin-bottom: rem(50px);
+  }
+  .pane-content {
+    @include center-column($desktop_column);
+  }
+  .nabers-tools {
+    .wrapper-link {
+      width: 100%;
+      display: flex;
+      text-decoration: none;
+      @include breakpoint(tablet) {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        height: 100%;
+      }
+      &[rel~='external'] {
+        &::after {
+          display: none;
+        }
+        .field-type-link-field .field-item {
+          position: relative;
+          &::after {
+            @extend %base-link-icon--after;
+            background-size: (0.75 * $medium-spacing) auto;
+            @include ui-kit-external-primary;
+          }
+        }
+      }
+      .field-type-link-field {
+        background-color: $white;
+        color: $primary_1;
+        font-weight: 500;
+      }
+      &:hover, &:focus {
+        &[rel~='external'] {
+          .field-type-link-field .field-item::after {
+            @include ui-kit-external-light;
+          }
+        }
+        .field-name-field-link-image {
+          background-color: #e1ddd8;
+        }
+        .field-type-link-field {
+          background-color: $primary_1;
+          color: $white;
+        }
+      }
+    }
+    .field-name-field-link-image {
+      background-color: $background-grey;
+      text-align: center;
+      padding: 0 rem(14px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: rem(48px);
+      img {
+        width: rem(48px);
+      }
+      @include breakpoint(tablet) {
+        max-width: 100%;
+        padding: 0;
+        width: 100%;
+        display: block;
+        .field-items {
+          height: 0;
+          padding: 0 0 63%;
+          position: relative;
+        }
+        img {
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+          bottom: 0;
+          margin: auto;
+          width: rem(65px);
+        }
+      }
+      @include breakpoint(large_tablet) {
+        img {
+          width: rem(80px);
+        }
+      }
+    }
+    .field-type-link-field {
+      background-color: $white;
+      padding: rem(28px) rem(10px);
+      flex: 1;
+      @include breakpoint(tablet) {
+        padding: rem(20px) rem(10px);
+        text-align: center;
+        flex: 0 auto;
+      }
+      .field-items {
+        width: 100%;
+      }
+    }
+    &__main-link {
+      display: flex;
+      background-size: 0;
+      @include breakpoint(tablet) {
+        margin-bottom: rem(5px);
+      }
+      @include breakpoint(large_tablet) {
+        margin-bottom: rem(15px);
+      }
+      .content {
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        @include breakpoint(tablet) {
+          display: block;
+          max-width: rem(170px);
+        }
+        @include breakpoint(large_tablet) {
+          max-width: rem(270px);
+        }
+      }
+      &>.field {
+        @include breakpoint(tablet) {
+          min-width: rem(170px);
+          max-width: rem(270px);
+        }
+      }
+      @include breakpoint(tablet) {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding: rem(30px) 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .field-name-field-link-image {
+        @include breakpoint(tablet) {
+          min-width: rem(170px);
+          max-width: rem(270px);
+        }
+      }
+    }
+    &__secondary-links {
+      .content {
+        width: 100%;
+        @include breakpoint(tablet) {
+          flex: 1;
+        }
+      }
+      .paragraphs-items-field-tools {
+        margin-top: rem(1px);
+        width: 100%;
+        @include breakpoint(tablet) {
+          margin-top: 0;
+        }
+        .paragraphs-item-link-with-image {
+          margin-bottom: rem(1px);
+          @include breakpoint(tablet) {
+            display: flex;
+            flex: 1;
+            margin-bottom: 0;
+          }
+        }
+        .field-name-field-tools>.field-items {
+          @include breakpoint(tablet) {
+            display: flex;
+          }
+          &>.field-item {
+            @include breakpoint(tablet) {
+              width: 25%;
+              background-color: $white;
+              margin: rem(10px);
+              display: flex;
+              @include breakpoint(tablet) {
+                margin: rem(5px);
+              }
+              @include breakpoint(large_tablet) {
+                margin: rem(15px);
+              }
+              &:hover, &:focus {
+                background-color: $primary_1;
+              }
+            }
+            &:first-child {
+              @include breakpoint(tablet) {
+                margin-left: 0;
+              }
+            }
+            &:last-child {
+              @include breakpoint(tablet) {
+                margin-right: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

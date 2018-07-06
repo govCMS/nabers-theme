@@ -1,0 +1,267 @@
+$menu_horizontal_padding_tablet: rem(12px);
+$menu_horizontal_padding_desktop: rem(17px);
+// Menu Lvl 1
+$menu_lvl_1_background: $darker-blue;
+$menu_lvl_1_background_hover: $darker-blue;
+// Menu Lvl 2
+$menu_lvl_2_background: $menu_lvl_1_background_hover;
+$menu_lvl_2_background_hover: #006487;
+// Menu Lvl 3
+$menu_lvl_3_background: $menu_lvl_2_background_hover;
+$menu_lvl_3_background_hover: #005470;
+// Menu Lvl 4
+$menu_lvl_4_background: $menu_lvl_3_background_hover;
+// =========================================================
+// TOP NAVIGATION
+// =========================================================
+.region-navigation {
+  .block-superfish {
+    @include center-column($desktop_column);
+    display: none;
+    @include breakpoint(large_tablet) {
+      display: block;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    @include breakpoint(desktop) {
+      padding-left: $default_padding;
+      padding-right: $default_padding;
+    }
+    a {
+      font-family: $primary-font;
+      font-weight: 500;
+      text-decoration: none;
+      &:focus, &:hover {
+        text-decoration: underline !important;
+      }
+    }
+    ul.sf-menu {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: stretch;
+      html.no-flexbox & {
+        display: table;
+      }
+      @include breakpoint(large_tablet) {
+        html.no-flexbox & {
+          table-layout: fixed;
+        }
+      }
+      // If JS is enabled - hide sub nav menus until superfish finishes loading.
+      &:not(.superfish-processed) {
+        &>li>ul {
+          html:not(.no-js) & {
+            visibility: hidden;
+          }
+        }
+      }
+      li.sfHover {
+        &>a {
+          color: $white !important;
+          &::before {
+            background-color: $primary_1;
+          }
+          &::after {
+            background-image: url(../images/svg/nav_down_arrow_light.svg) !important;
+          }
+        }
+      }
+      &>li {
+        position: relative;
+        vertical-align: top;
+        float: none;
+        display: inline-block;
+        padding-top: 0;
+        padding-bottom: 0;
+        html.no-flexbox & {
+          display: table-cell;
+          width: auto;
+        }
+        &.menuparent {
+          &>a:after {
+            content: '';
+            display: inline-block;
+            background-image: url(../images/svg/nav_down_arrow.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+            width: rem(15px);
+            height: rem(8px);
+            margin-left: rem(10px);
+            vertical-align: middle;
+          }
+        }
+        &.active-trail {
+          &>a {
+            color: $text-dark-grey;
+            &::after {
+              background-image: url(../images/svg/nav_down_arrow_active.svg);
+            }
+          }
+        }
+        &>a {
+          position: static;
+          display: inline-block;
+          padding: rem(19px) rem(2px);
+          box-sizing: border-box;
+          width: 100%;
+          height: 100%;
+          color: $default-blue;
+          text-align: center;
+          font-size: rem(18px);
+          @include breakpoint(large_tablet) {
+            padding-left: $menu_horizontal_padding_tablet;
+            padding-right: $menu_horizontal_padding_tablet;
+          }
+          @include breakpoint(desktop) {
+            padding-left: $menu_horizontal_padding_desktop;
+            padding-right: $menu_horizontal_padding_desktop;
+          }
+          &[rel~='external']::after {
+            @include ui-kit-external-primary;
+            background-position-y: top;
+          }
+          &:hover, &:focus {
+            color: $white;
+            &:before {
+              background-color: $menu_lvl_1_background_hover;
+            }
+            &[rel~='external']::after {
+              @include ui-kit-external-light;
+            }
+          }
+          &:before {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: auto;
+          }
+        }
+        &>ul {
+          top: 100%;
+          padding: 0;
+          margin: 0;
+          min-width: 100%;
+          li {
+            &.menuparent {
+              &>a {
+                background-image: url(../images/svg/nav_right_arrow.svg);
+                background-repeat: no-repeat;
+                background-position: right rem(22px) center;
+              }
+            }
+            a {
+              background-color: $menu_lvl_2_background;
+              color: $white;
+              font-size: rem(16px);
+              padding-left: rem(30px);
+              padding-right: rem(30px);
+              padding-top: rem(16px);
+              padding-bottom: rem((16px - 1px));
+              &[rel~='external'] {
+                display: block;
+                margin-right: 0;
+                &::after {
+                  @include ui-kit-external-light;
+                }
+              }
+              &:hover, &:focus {
+                background-color: $menu_lvl_2_background_hover;
+              }
+            }
+          }
+        }
+      }
+      .sf-depth-2.sfHover {
+        &>a {
+          background-color: $menu_lvl_2_background_hover !important;
+        }
+        ul {
+          a {
+            background-color: $menu_lvl_3_background;
+            &:hover, &:focus {
+              background-color: $menu_lvl_3_background_hover;
+            }
+          }
+          ul {
+            a {
+              background-color: $menu_lvl_4_background;
+            }
+          }
+        }
+      }
+      .sf-depth-3.sfHover {
+        &>a {
+          background-color: $menu_lvl_4_background !important;
+        }
+      }
+    }
+  }
+}
+
+//=====================================
+// Landing page navigation tiles
+//=====================================
+#landing-page-tiles {
+  margin-bottom: rem(60px);
+  @include breakpoint(large_tablet) {
+    margin-bottom: rem(100px);
+  }
+  &:first-child {
+    margin-top: rem(40px);
+    @include breakpoint(large_tablet) {
+      margin-top: rem(65px);
+    }
+  }
+  .landing-page-tiles-wrapper {
+    max-width: $desktop_column;
+    @include breakpoint(tablet) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .landing-page-tile {
+      @include generic-view-row-base;
+      max-width: none;
+      @include breakpoint(tablet) {
+        @include generic-view-row-2;
+      }
+      @include breakpoint(large_tablet) {
+        @include generic-view-row-3;
+        &:nth-child(2n) {
+          margin-right: flex-gutter(12);
+        }
+      }
+      .node {
+        @include listing-component-wrapper;
+        @include listing-component-wrapper-grey;
+        padding: rem(28px);
+        max-width: none;
+        h2 {
+          @include listing-component-heading;
+          margin-top: 0;
+        }
+        &.has-thumbnail {
+          padding-top: $listing_component_image_height;
+          .field-type-image {
+            @include listing-component-image;
+            .field-item:nth-child(n + 2) {
+              display: none;
+            }
+          }
+          h2 {
+            margin-top: rem(30px);
+          }
+        }
+      }
+      .field-name-body {
+        @include listing-component-body;
+      }
+    }
+  }
+}

@@ -1,0 +1,245 @@
+$local-max-container-width: rem(1310px);
+$local-featured-content-bg-color-100: rgba(0, 114, 153, 1);
+$local-featured-content-bg-color-90: rgba(0, 114, 153, 0.9);
+body.node-type-data-landing-page {
+  .feature-data-reports {
+    background: linear-gradient(to bottom, $background-grey rem(90px), $white rem(10px));
+    display: flex;
+    width: 100%;
+    @include breakpoint(tablet) {
+      padding: 0 30px;
+    }
+    .paragraphs-items-field-landing-featured-reports {
+      width: 100%;
+      .paragraphs-item-featured-data-reports {
+        @include center-column($desktop_column);
+        @include breakpoint(tablet) {
+          padding: 0;
+        }
+        .featured-content {
+          color: $white;
+          position: relative;
+          background-color: $local-featured-content-bg-color-100;
+          @include breakpoint(tablet) {
+            padding: 0 0 rem(40px);
+          }
+          @include breakpoint(large_tablet) {
+            background-color: transparent;
+          }
+          &__image {
+            @include breakpoint(tablet) {
+              position: relative;
+            }
+            @include breakpoint(large_tablet) {
+              position: absolute;
+              margin-left: rem(-25px);
+            }
+            a {
+              display: block;
+            }
+            img {
+              display: block;
+              width: 100%;
+            }
+          }
+          &__text {
+            background-color: $local-featured-content-bg-color-90;
+            padding: $default_padding;
+            z-index: 1;
+            position: relative;
+            margin-top: rem(-20px);
+            @include breakpoint(tablet) {
+              padding: rem(50px) rem(75px);
+              margin-top: rem(-40px);
+            }
+            @include breakpoint(large_tablet) {
+              padding: rem(50px) rem(75px);
+              max-width: rem(475px);
+              float: right;
+              position: relative;
+              margin-top: rem(40px);
+              margin-right: rem(-25px);
+            }
+          }
+          &__title {
+            @include medium-title;
+            color: $white;
+            margin-bottom: rem(18px);
+            font-weight: 500;
+          }
+          &__subtitle {
+            margin-bottom: rem(20px);
+            .field {
+              display: inline-block;
+              font-weight: 700;
+            }
+            .subtitle-divider {
+              margin: 0 rem(10px);
+            }
+          }
+          &__body {
+            margin-bottom: rem(40px);
+          }
+          &__call_to_action {
+            display: flex;
+            justify-content: flex-start;
+            a {
+              @include button-invert-white;
+              display: block;
+              width: auto;
+            }
+          }
+        }
+        .featured-content+.featured-content {
+          margin-top: rem(40px);
+        }
+        &.data-gallery-count-2 {
+          @include breakpoint(large_tablet) {
+            display: flex;
+            margin: 0 auto;
+            max-width: 1310px;
+            justify-content: space-between;
+            flex: 1;
+          }
+          .featured-content {
+            @include breakpoint(large_tablet) {
+              padding: 0 0 rem(40px);
+              display: flex;
+              flex-direction: column;
+              max-width: 622px;
+              width: calc(50% - 15px);
+              margin: 0;
+              background-color: $local-featured-content-bg-color-100;
+            }
+            &__image {
+              @include breakpoint(large_tablet) {
+                position: relative;
+                margin: 0;
+                padding: 0;
+              }
+            }
+            &__text {
+              @include breakpoint(large_tablet) {
+                margin-top: rem(-40px);
+                width: calc(100% - #{rem(150px)});
+                height: 100%;
+              }
+            }
+            &__call_to_action {
+              @include breakpoint(tablet) {
+                position: absolute;
+                bottom: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .paragraphs-items-field-landing-data-reports {
+    padding-bottom: rem(120px);
+    @include breakpoint(large_tablet) {
+      padding-bottom: rem(140px);
+    }
+    .paragraphs-item-data-reports {
+      .field-name-field-data-reports-title, .field-name-field-data-reports-description {
+        @include primary-font-book;
+        max-width: $desktop_content_column;
+        margin: 0 auto;
+        color: $default-blue;
+      }
+      .field-name-field-data-reports-title {
+        font-size: rem(30px);
+        border-bottom: 3px solid $border-color-grey;
+        margin-bottom: rem(30px);
+        padding-bottom: rem(30px);
+        line-height: 1.2;
+        padding-top: rem(120px);
+        @include breakpoint(large_tablet) {
+          padding-top: rem(140px);
+        }
+      }
+      .field-name-field-data-reports-description {
+        font-size: rem(24px);
+        margin-bottom: rem(60px);
+      }
+      .field-name-field-data-gallery {
+        &>.field-items {
+          @include generic-view-content;
+          &>.field-item {
+            @include generic-view-row-base;
+            @include generic-view-row-3;
+            background-color: $background-grey;
+            .node {
+              @include listing-component-wrapper;
+              @include listing-component-wrapper-grey;
+              padding-top: 74.32%
+            }
+            .field-name-field-data-image {
+              @include listing-component-image;
+              a {
+                display: block;
+              }
+            }
+            .content {
+              padding: rem(30px);
+              h2 {
+                @include listing-component-heading;
+                margin-top: 0;
+              }
+              .field-name-body {
+                @include listing-component-body;
+              }
+            }
+          }
+        }
+      }
+      &.data-gallery-count-2 {
+        .field-name-field-data-gallery:not(:first-child) {
+          &>.field-items {
+            @include generic-view-content;
+            &>.field-item {
+              @include generic-view-row-base;
+              @include generic-view-row-2;
+              .node {
+                max-width: 100%;
+              }
+            }
+          }
+        }
+      }
+      &.data-gallery-count-1 {
+        .field-name-field-data-gallery {
+          &>.field-items {
+            @include generic-view-content;
+            &>.field-item {
+              @include generic-view-row-base;
+              width: 100%;
+              .node {
+                max-width: 100%;
+                @include breakpoint(large_tablet) {
+                  padding: 0;
+                  display: flex;
+                }
+                .field-name-field-data-image {
+                  @include breakpoint(large_tablet) {
+                    position: relative;
+                    max-width: 50%;
+                  }
+                }
+                .content {
+                  @include breakpoint(large_tablet) {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    padding: rem(30px) rem(60px);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

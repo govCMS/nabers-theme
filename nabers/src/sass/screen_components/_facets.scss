@@ -1,0 +1,119 @@
+.region-sidebar-first {
+  .block.block-facetapi {
+    margin-bottom: rem(60px);
+    @include breakpoint(large_tablet) {
+      margin-bottom: 0;
+    }
+    h2 {
+      @include medium-title;
+      margin: 0 0 rem(30px);
+      display: flex;
+      justify-content: flex-start;
+      padding-right: rem(5px);
+      button {
+        background: url('../images/svg/sidebar-arrow-down.svg') no-repeat center right;
+        border: none;
+        padding: 0;
+        width: 100%;
+        text-align: left;
+      }
+      &.collapsed {
+        button {
+          background-image: url('../images/svg/sidebar-arrow-up.svg');
+        }
+      }
+    }
+    .clear-filters {
+      padding-left: rem(5px);
+      a {
+        @include default-link;
+        font-size: rem(16px);
+        margin-top: rem(30px);
+      }
+    }
+    .item-list {
+      ul {
+        margin: 0;
+        padding: 0 0 0 rem(5px);
+        li {
+          margin: 0 0 rem(25px) 0;
+          padding: 0;
+          list-style: none;
+          font-size: rem(16px);
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+          input {
+            position: absolute;
+            left: -9999px;
+            &+label {
+              display: inline-block;
+              position: relative;
+              white-space: nowrap;
+              cursor: pointer;
+              user-select: none;
+              width: rem(35px);
+              height: rem(30px);
+              text-indent: -999999px;
+              margin-right: rem(10px);
+              &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: rem(26px);
+                height: rem(26px);
+                border: 1px solid $text-grey;
+                border-radius: rem(100px);
+                transition: background-color .2s;
+              }
+            }
+            &:checked+label {
+              &::before {
+                background: $primary_1 url('../images/svg/tick--white.svg') no-repeat center center;
+                border-color: $primary_1;
+              }
+            }
+            &:focus+label {
+              &::before {
+                border: $focus-outline;
+              }
+            }
+          }
+          a {
+            @include default-link;
+            width: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            text-decoration: none;
+            .facet-link-text {
+              text-decoration: underline;
+            }
+            &:hover, &:focus {
+              .facet-link-text {
+                text-decoration: none;
+              }
+            }
+          }
+          .facetapi-label {
+            width: 100%;
+          }
+          .facetapi-count {
+            background-color: $background-grey;
+            font-size: rem(16px);
+            font-family: $primary-font;
+            font-weight: 500;
+            border-radius: rem(30px);
+            padding: rem(3px) rem(10px);
+            min-width: rem(45px);
+            text-align: center;
+            color: $text-grey;
+          }
+        }
+      }
+    }
+  }
+}

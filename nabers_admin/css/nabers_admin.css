@@ -1,0 +1,8 @@
+.media-element .file-icon,
+.file-widget .file-icon,
+.media-thumbnail .file-icon,
+.media-browser-tab .file-icon {
+  max-width: 30px;
+  margin-right: 10px;
+  vertical-align: middle;
+}

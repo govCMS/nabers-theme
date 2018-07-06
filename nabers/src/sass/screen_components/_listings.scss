@@ -1,0 +1,197 @@
+// =========================================================
+// LISTING
+// The default style for content views.
+// =========================================================
+@mixin generic-view-content {
+  @include breakpoint(tablet) {
+    @include outer-container(100%);
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+@mixin generic-view-row-base() {
+  max-width: rem(370px);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: rem(30px);
+  @include breakpoint(tablet) {
+    max-width: none;
+  }
+}
+
+@mixin generic-view-row-3() {
+  @include breakpoint(tablet) {
+    margin-left: 0;
+    margin-right: flex-gutter(12);
+    width: flex-grid(4, 12);
+  }
+  &:nth-child(3n) {
+    @include breakpoint(tablet) {
+      margin-right: 0;
+    }
+  }
+}
+
+@mixin generic-view-row-2() {
+  @include breakpoint(tablet) {
+    margin-left: 0;
+    margin-right: flex-gutter(12);
+    width: flex-grid(6, 12);
+  }
+  &:nth-child(2n) {
+    @include breakpoint(tablet) {
+      margin-right: 0;
+    }
+  }
+}
+
+// A generic view layout for sidebar / no sidebar types.
+// This should be applied to the body of pages you wish to show a generic view on.
+@mixin generic-view-layout() {
+  .no-sidebar {
+    .content-body-inner-pane {
+      .page__title {
+        @include center-column($desktop_column);
+      }
+    }
+    .view {
+      @include center-column($desktop_column);
+      .views-row {
+        @include generic-view-row-3;
+      }
+    }
+  }
+  .has-sidebar {
+    .view {
+      max-width: $desktop_content_column;
+      .views-row {
+        @include generic-view-row-2;
+      }
+    }
+  }
+  .view {
+    .view-content {
+      @include generic-view-content;
+    }
+    .views-row {
+      @include generic-view-row-base;
+      .node {
+        @include listing-component-wrapper;
+        padding-left: 0;
+        padding-right: 0;
+        &.has-thumbnail {
+          padding-top: $listing_component_image_height;
+          .field-type-image {
+            @include listing-component-image;
+            .field-item:nth-child(n + 2) {
+              display: none;
+            }
+          }
+          h2 {
+            margin-top: rem(30px);
+          }
+        }
+        &>.links {
+          li {
+            padding-left: 0;
+          }
+        }
+      }
+      h2 {
+        @include listing-component-heading;
+        margin-top: 0;
+      }
+      .field-name-field-date, .submitted, .field-type-datetime {
+        @include listing-component-subtext;
+      }
+      .field-name-body {
+        @include listing-component-body;
+      }
+      .node-readmore {
+        padding: 0;
+        a {
+          @include listing-component-button;
+        }
+      }
+    }
+    .pager {
+      margin-top: $default_padding;
+      margin-bottom: $default_padding;
+    }
+  }
+}
+
+// Pagination.
+.view .item-list {
+  padding-bottom: rem(65px);
+  @include breakpoint(tablet) {
+    padding: rem(15px) 0 rem(40px);
+  }
+  @include breakpoint(large_tablet) {
+    padding: rem(15px) 0 rem(70px);
+  }
+  .pager {
+    position: relative;
+    margin: 0;
+    li {
+      margin: 0 rem(4px);
+      padding: 0;
+      display: inline-block;
+      font-size: rem(18px);
+    }
+    a {
+      display: inline-block;
+      color: $darker-blue;
+      text-decoration: none;
+      &:hover, &:focus {
+        text-decoration: underline;
+      }
+    }
+    .pager-previous {
+      left: 0;
+      a {
+        background-image: url('../images/svg/pager_left.svg');
+        background-position: center left;
+        padding-left: 25px;
+      }
+    }
+    .pager-next {
+      right: 0;
+      a {
+        background-image: url('../images/svg/pager_right.svg');
+        background-position: center right;
+        padding-right: 25px;
+      }
+    }
+    .pager-current {
+      font-weight: 400;
+    }
+    .pager-previous, .pager-next {
+      position: absolute;
+      .ajax-progress {
+        display: none;
+      }
+      a {
+        display: inline-block;
+        background-repeat: no-repeat;
+        text-indent: rem(-999px);
+        overflow: hidden;
+        @include breakpoint(tablet) {
+          text-indent: 0;
+          overflow: visible;
+        }
+      }
+    }
+    .pager-ellipsis, .pager-first, .pager-last {
+      display: none;
+    }
+  }
+}
+
+// Implementations of the generic view.
+body.page-events {
+  #content {
+    @include generic-view-layout;
+  }
+}

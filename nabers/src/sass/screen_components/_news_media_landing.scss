@@ -1,0 +1,74 @@
+.view-latest-news {
+  @include center-column($desktop_column);
+  margin-top: rem(65px);
+  .view-content {
+    @include generic-view-content;
+  }
+  .views-row {
+    @include generic-view-row-base;
+    @include generic-view-row-3;
+    .node {
+      @include listing-component-wrapper;
+      @include listing-component-wrapper-grey;
+      padding: rem(28px);
+      &.has-thumbnail {
+        padding-top: $listing_component_image_height;
+        .field-type-image {
+          @include listing-component-image;
+          .field-item:nth-child(n + 2) {
+            display: none;
+          }
+        }
+        h2 {
+          margin-top: rem(30px);
+        }
+      }
+      &>.links {
+        li {
+          padding-left: 0;
+        }
+      }
+    }
+    h2 {
+      @include listing-component-heading;
+      @include listing-component-heading-grey;
+      margin-top: 0;
+    }
+    .field-name-field-date, .submitted, .field-type-datetime {
+      @include listing-component-subtext;
+      @include listing-component-subtext-grey;
+    }
+    .field-name-body {
+      @include listing-component-body;
+    }
+    .node-readmore {
+      padding: 0;
+      a {
+        @include listing-component-button;
+      }
+    }
+  }
+  .pager {
+    margin-top: $default_padding;
+    margin-bottom: $default_padding;
+  }
+  .bean-image-and-text {
+    @include listing-component-wrapper;
+    padding-top: $listing_component_image_height;
+    padding-left: 0;
+    padding-right: 0;
+    .field-name-field-bean-image {
+      @include listing-component-image;
+    }
+    .field-name-field-bean-text {
+      @include listing-component-body;
+      margin-top: $default_padding;
+    }
+    .field-name-field-link-to {
+      .field-item {
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}

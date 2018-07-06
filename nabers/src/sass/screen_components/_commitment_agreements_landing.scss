@@ -1,0 +1,462 @@
+@mixin set-min-and-max-width($width) {
+  max-width: $width;
+}
+
+#block-bean-commitment-agreements-intro {
+  @include landing-page-introduction-bean;
+}
+
+#block-views-exp-commitment-agreements-page {
+  @include center-column($desktop_column);
+  &>.content {
+    @include breakpoint(tablet) {
+      background-color: $background-grey;
+      padding: rem(25px) rem(20px) rem(12px);
+    }
+    @include breakpoint(large_tablet) {
+      padding: rem(25px) rem(54px) rem(12px);
+    }
+  }
+  .views-exposed-widgets {
+    margin-bottom: 0;
+  }
+  .views-exposed-widget {
+    width: 100%;
+    padding: 0;
+    .horizontal-tabs {
+      border: none;
+      margin: 0;
+    }
+    .horizontal-tabs-list {
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      @include breakpoint(tablet) {
+        margin-bottom: rem(-2px);
+      }
+      .horizontal-tab-button {
+        float: none;
+        background: none;
+        display: inline-block;
+        font-size: rem(18px);
+        border-right: none;
+        margin-right: rem(10px);
+        min-width: 0;
+        text-align: center;
+        line-height: rem(19px);
+        padding: 0 0 rem(10px);
+        @include breakpoint(tablet) {
+          padding: 0 0 rem(15px);
+          margin-right: rem(25px);
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+        &:hover {
+          background: none;
+        }
+        &:not(.selected) {
+          a {
+            @include button-invert;
+            font-size: rem(16px);
+            padding: rem(10px) rem(10px);
+            @include breakpoint(tablet) {
+              padding: rem(15px) rem(32px);
+              font-size: rem(18px);
+            }
+          }
+        }
+        &.selected {
+          background-color: $primary_1;
+          border-radius: rem(27px) rem(27px) 0 0;
+          padding-bottom: rem(15px);
+          a {
+            padding: rem(10px) rem(12px);
+            background-color: transparent;
+            color: $white;
+            font-family: $primary-font;
+            font-size: rem(16px);
+            @include breakpoint(tablet) {
+              padding: rem(15px) rem(34px);
+              font-size: rem(18px);
+            }
+          }
+        }
+        strong {
+          color: inherit;
+          font-weight: 500;
+        }
+      }
+    }
+    .horizontal-tabs-panes {
+      background-color: $background-grey;
+      .horizontal-tab-hidden {
+        display: none;
+      }
+      .horizontal-tabs-pane {
+        padding: 0;
+        margin: 0;
+        &.search-by-name {
+          .fieldset-wrapper {
+            justify-content: flex-end;
+            @include breakpoint(large_tablet) {
+              padding-bottom: rem(56px);
+            }
+          }
+          .form-type-item {
+            margin-bottom: rem(25px);
+            @include breakpoint(tablet) {
+              margin-bottom: rem(30px);
+            }
+          }
+        }
+      }
+      .fieldset-wrapper {
+        @include breakpoint(tablet) {
+          display: flex;
+          align-items: center;
+        }
+        @include breakpoint(large_tablet) {
+          align-items: center;
+        }
+        .form-type-item {
+          background-color: $primary_1;
+          padding: rem(20px);
+          @include breakpoint(tablet) {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+          }
+          @include breakpoint(large_tablet) {
+            width: calc(100% - 150px);
+          }
+          label {
+            font-size: rem(16px);
+            font-weight: 600;
+            color: $white;
+            @include breakpoint(tablet) {
+              @include visually-hidden;
+            }
+          }
+          input {
+            background-color: $white;
+            font-family: $primary-font;
+            color: $text-dark-grey;
+            border-radius: rem(27px);
+            appearance: none;
+            font-size: rem(16px);
+            width: 100%;
+            &::-ms-expand {
+              display: none;
+            }
+          }
+          .form-type-textfield {
+            width: 100%;
+            input {
+              padding: rem(10px) rem(16px);
+              font-size: rem(12px);
+              border-color: $white;
+              font-weight: 400;
+              &::placeholder {
+                color: transparent;
+                @include breakpoint(tablet) {
+                  color: $text-grey;
+                }
+              }
+              &:focus {
+                outline: 0;
+                border: $focus-outline;
+              }
+              @include breakpoint(tablet) {
+                font-size: rem(16px);
+              }
+              @include breakpoint(large_tablet) {
+                font-size: rem(18px);
+                padding: rem(12px) rem(16px);
+              }
+            }
+          }
+        }
+        .submit-button-wrapper {
+          padding: $mobile_column_padding $mobile_column_padding;
+          @include breakpoint(tablet) {
+            padding: 0;
+          }
+          .form-submit {
+            @include button-standard;
+            padding: rem(10px) 0;
+            margin: 0;
+            @include breakpoint(tablet) {
+              padding: rem(11px) rem(30px);
+              margin-left: rem(15px);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.commitment-agreement-facets {
+  @include center-column($desktop_column);
+  &>.content {
+    background-color: $background-grey;
+    margin: 0 0 rem(20px);
+    padding: 0 $mobile_column_padding rem(20px);
+    @include breakpoint(tablet) {
+      margin: 0 auto;
+      padding: 0 rem(20px) rem(30px);
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+    @include breakpoint(large_tablet) {
+      padding: rem(8px) rem(54px) rem(30px);
+      flex-wrap: nowrap;
+    }
+  }
+  .block-facetapi {
+    position: relative;
+    background: $white url('../images/svg/nav_down_arrow.svg') no-repeat 98% center;
+    border-radius: rem(27px);
+    border: 1px solid $text-grey;
+    margin-bottom: rem(12px);
+    @include breakpoint(tablet) {
+      margin-right: rem(10px);
+      display: flex;
+      background-position: 95% center;
+    }
+    @include breakpoint(large_tablet) {
+      margin-bottom: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    .content {
+      display: flex;
+      @include breakpoint(tablet) {
+        min-width: rem(212px);
+      }
+      @include breakpoint(large_tablet) {
+        min-width: rem(163px);
+      }
+      @include breakpoint(desktop) {
+        min-width: rem(193px);
+      }
+    }
+    .facet-select {
+      @include select-field;
+      padding: rem(8px) rem(30px) rem(8px) rem(15px);
+      width: 100%;
+      font-size: rem(14px);
+      position: relative;
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px $focus-yellow;
+      }
+      &:disabled {
+        color: $text-grey;
+      }
+    }
+    &.facet-disabled {
+      background-image: url('../images/svg/nav_down_arrow_active.svg');
+    }
+  }
+}
+
+.view-commitment-agreements {
+  @include center-column($desktop_column);
+  margin-bottom: rem(50px);
+  font-family: $primary-font;
+  @include breakpoint(tablet) {
+    padding: 0 $default_padding;
+  }
+  @include breakpoint(large_tablet) {
+    padding: 0 rem(30px);
+  }
+  .view-empty {
+    @include center-column($desktop_content_column);
+    margin-top: rem(50px);
+  }
+  .view-header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-bottom: rem(25px);
+    @include breakpoint(tablet) {
+      flex-direction: row;
+      padding: rem(25px) 0 0;
+    }
+    #commitment-agreements-clear-search {
+      @include breakpoint(tablet) {
+        margin-bottom: 0;
+      }
+      a {
+        @include default-link($primary_1, false);
+      }
+    }
+    .views-result-summary {
+      font-size: rem(20px);
+      color: $primary_1;
+      margin-bottom: rem(20px);
+    }
+  }
+  .view-content {
+    padding-bottom: rem(30px);
+    border-bottom: 1px solid #ececec;
+    margin-bottom: rem(15px);
+  }
+  .views-row {
+    padding: rem(10px);
+    margin-bottom: rem(15px);
+    @include breakpoint(tablet) {
+      padding: rem(15px) 0;
+      margin-bottom: 0;
+    }
+    &.views-row-odd {
+      background-color: $background-grey;
+    }
+  }
+  .view-table-header {
+    display: none;
+    font-size: rem(11px);
+    font-weight: 600;
+    margin-bottom: rem(20px);
+    @include breakpoint(tablet) {
+      display: flex;
+    }
+    @include breakpoint(large_tablet) {
+      font-size: rem(12px);
+    }
+    .field {
+      width: 10%;
+      padding: 0 rem(5px);
+    }
+  }
+  .node-commitment-agreement {
+    &>.content {
+      @include breakpoint(tablet) {
+        display: flex;
+      }
+      &>.field {
+        display: flex;
+        margin-bottom: rem(15px);
+        @include breakpoint(tablet) {
+          flex-direction: column;
+          padding: 0 rem(5px);
+          margin-bottom: 0;
+          width: 10%;
+        }
+        .field-label {
+          font-size: rem(12px);
+          font-weight: 600;
+          display: inline-block;
+          width: 47%;
+          @include breakpoint(tablet) {
+            display: none;
+            .no-js & {
+              display: block;
+              margin-bottom: rem(10px);
+            }
+          }
+        }
+        &>.field-items {
+          display: inline-block;
+          font-size: rem(12px);
+          width: 53%;
+          @include breakpoint(tablet) {
+            width: 100%;
+            font-size: rem(11px);
+          }
+          @include breakpoint(large_tablet) {
+            font-size: rem(12px);
+          }
+        }
+      }
+    }
+    .field.building-details {
+      &>.field-items {
+        display: flex;
+        width: 53%;
+        flex-wrap: wrap;
+        @include breakpoint(tablet) {
+          width: 100%;
+        }
+        .field {
+          margin-right: rem(5px);
+        }
+        .field--empty {
+          display: none;
+        }
+      }
+    }
+  }
+  .content .field-name-field-ca-status.status-achieved {
+    .field-items {
+      font-weight: 600;
+      color: $primary_1;
+      background: url('../images/svg/tick--blue.svg') no-repeat left rem(5px);
+      padding-left: rem(15px);
+    }
+  }
+  .content, .view-table-header {
+    .field.building-details {
+      @include breakpoint(tablet) {
+        width: 25%;
+      }
+      @include breakpoint(large_tablet) {
+        width: 30%;
+      }
+    }
+    .field.field-name-field-ca-signatory {
+      @include breakpoint(tablet) {
+        width: 10%;
+      }
+      @include breakpoint(large_tablet) {
+        width: 20%;
+      }
+    }
+  }
+}
+
+.form-prefix {
+  position: relative;
+  margin-bottom: rem(15px);
+  display: flex;
+  flex-direction: column-reverse;
+  @include breakpoint(tablet) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .search-by {
+    @include primary-font-book;
+    color: $text-dark-grey;
+    margin-bottom: 0;
+  }
+  #commitment-agreements-download-csv {
+    @include file-link-style;
+    margin-bottom: rem(30px);
+    font-size: rem(15px);
+    font-weight: 600;
+    @include breakpoint(desktop) {
+      top: rem(65px);
+      right: 0;
+      position: absolute;
+      z-index: 1;
+    }
+    span.file {
+      padding-left: rem(30px);
+    }
+    .file-size {
+      font-weight: 500;
+    }
+    .file-icon-wrapper {
+      display: block;
+      width: rem(24px);
+      height: rem(30px);
+      background: url('../images/png/icons/text-csv.png') no-repeat left center;
+      background-size: contain;
+    }
+  }
+}

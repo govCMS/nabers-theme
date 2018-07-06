@@ -1,0 +1,241 @@
+// =========================================================
+// HEADER
+// =========================================================
+.header {
+  position: fixed;
+  background-color: $white;
+  width: 100%;
+  z-index: 2;
+  body.navbar-administration:not(.navbar-fixed) & {
+    position: relative;
+  }
+  &__search-open {
+    padding-bottom: rem(73px);
+    @include breakpoint(large_tablet) {
+      padding-bottom: 0;
+    }
+  }
+  &__inner {
+    body:not(.body--menu-open) & {
+      @include center-column($desktop_column);
+      padding: rem(17px) $mobile_column_padding;
+      @include breakpoint(large_tablet) {
+        padding: rem(44px) $mobile_column_padding * 2 0;
+      }
+    }
+  }
+  // =========================================================
+  // LOGO
+  // =========================================================
+  &__logo {
+    position: relative;
+    @include breakpoint(large_tablet) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: rem(56px);
+    }
+  }
+  &__logo-wrapper {
+    display: inline-block;
+    @include breakpoint(large_tablet) {
+      order: 0;
+    }
+    html.no-flexbox & {
+      @include breakpoint(large_tablet) {
+        display: inline-block;
+        width: auto;
+      }
+    }
+    a {
+      display: inline-block;
+      vertical-align: middle;
+      @include breakpoint(large_tablet) {
+        margin-top: rem(-35px);
+      }
+      img {
+        width: auto;
+        max-height: rem(50px);
+        @include breakpoint(large_tablet) {
+          max-height: 100%;
+        }
+      }
+    }
+  }
+  &__logo-image {
+    margin-right: 0;
+    width: rem(135px);
+    @include breakpoint(large_tablet) {
+      width: rem(215px);
+    }
+    &.no-title {
+      margin-right: auto;
+    }
+  }
+}
+
+// =========================================================
+// MOBILE SEARCH / MENU BUTTONS
+// =========================================================
+.mobile-expand-search, .mobile-expand-menu {
+  width: $mobile_expand_search_width;
+  height: $mobile_expand_search_width;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: rem(8px);
+  span {
+    @include visually-hidden;
+  }
+}
+
+.mobile-expand-search {
+  background-image: url(../images/svg/magnifying_glass.svg);
+  right: rem(45px);
+  @include breakpoint(large_tablet) {
+    top: auto;
+    position: relative;
+    order: 2;
+    right: 0;
+  }
+  &:hover, &:focus {
+    background-image: url(../images/svg/magnifying_glass_hover.svg);
+  }
+  &.search-open {
+    background-image: url(../images/svg/mobile_search_close.svg);
+    &:hover, &:focus {
+      background-image: url(../images/svg/mobile_search_close_hover.svg);
+    }
+  }
+}
+
+.mobile-expand-menu {
+  background-image: url(../images/svg/mobile_menu_open.svg);
+  right: 0;
+  &:hover, &:focus {
+    background-image: url(../images/svg/mobile_menu_open_hover.svg);
+  }
+  &.menu-open {
+    background-image: url(../images/svg/mobile_search_close.svg);
+    &:hover, &:focus {
+      background-image: url(../images/svg/mobile_search_close_hover.svg);
+    }
+  }
+}
+
+// =========================================================
+// NAVIGATION
+// =========================================================
+#header__nav {
+  body:not(.body--menu-open) & {
+    margin-left: auto;
+  }
+  .header__search-open & {
+    @include breakpoint(large_tablet) {
+      display: none;
+    }
+  }
+}
+
+// =========================================================
+// SEARCH
+// =========================================================
+#header__search {
+  display: none;
+  &.search-open {
+    display: block;
+    position: absolute;
+    left: auto;
+    z-index: 1000;
+    width: 100%;
+    right: 0;
+    left: 0;
+    margin-top: rem(22px);
+    @include breakpoint(large_tablet) {
+      width: rem(672px);
+      margin-top: 0;
+      order: 1;
+      margin-right: rem(24px);
+      margin-left: auto;
+      position: relative;
+      .region-header {
+        height: rem(55px);
+      }
+    }
+  }
+}
+
+.region-header {
+  display: flex;
+  align-items: center;
+  .block-govcms-text-resize {
+    html.no-flexbox & {
+      @include breakpoint(large_tablet) {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+  .block-search-api-page {
+    min-height: rem(58px);
+    width: 100%;
+    html.no-flexbox & {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+  .search-form-widget {
+    width: 100%;
+    border: 2px solid $text-grey;
+    border-radius: $search-field-border-radius;
+    background-color: $white;
+    &.search-toggle {
+      display: none;
+      @include breakpoint(large_tablet) {
+        display: block;
+      }
+      &.search-open {
+        display: block;
+        margin-top: $default_padding;
+      }
+    }
+    &>div {
+      display: flex;
+      justify-content: flex-start;
+      html.no-flexbox & {
+        display: table;
+      }
+      .form-item {
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1;
+        html.no-flexbox & {
+          display: table-cell;
+        }
+        input {
+          @include search-text-field;
+          border-radius: $search-field-border-radius;
+          padding-right: rem(60px);
+          &:focus {
+            outline: 0;
+            box-shadow: inset 0 0 0 2px $focus-yellow;
+          }
+        }
+      }
+      input[type="submit"] {
+        @include search-submit-button;
+        position: absolute;
+        right: 0;
+        z-index: 1;
+        html.no-flexbox & {
+          display: table-cell;
+        }
+      }
+    }
+  }
+}

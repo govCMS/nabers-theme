@@ -1,0 +1,104 @@
+#block-views-staff-member-block-staff-member {
+  @include center-column($desktop_column);
+  margin-top: rem(10px);
+  margin-bottom: rem(60px);
+  @include breakpoint(large_tablet) {
+    margin: rem(20px) auto rem(60px);
+  }
+  .view {
+    .view-content {
+      @include generic-view-content;
+    }
+    .views-row {
+      @include generic-view-row-base;
+      margin-bottom: rem(70px);
+      @include generic-view-row-2;
+      @include breakpoint(large_tablet) {
+        @include generic-view-row-3;
+        margin-bottom: rem(70px);
+      }
+      &:nth-child(2n) {
+        @include breakpoint(large_tablet) {
+          margin-right: flex-gutter(12);
+        }
+      }
+      &:nth-child(3n) {
+        @include breakpoint(large_tablet) {
+          margin-right: 0;
+        }
+      }
+      .node {
+        @include listing-component-wrapper;
+        display: flex;
+        flex-direction: column;
+        .field-name-field-feature-image {
+          @include listing-component-image;
+          position: relative;
+          flex: 0 0 auto;
+        }
+        .content {
+          position: relative;
+          height: 100%;
+          h2 {
+            @include listing-component-heading;
+            color: $text-dark-grey;
+            font-size: rem(20px);
+            margin-bottom: 0;
+          }
+          .field-name-field-staff-contact-for {
+            @include listing-component-body;
+            margin-top: rem(15px);
+          }
+        }
+        .field-name-field-staff-email {
+          margin-top: rem(30px);
+          a {
+            @include button-invert;
+            display: inline-block;
+            width: auto;
+            span {
+              background-image: url('../images/svg/icon_email_v2.svg');
+              background-repeat: no-repeat;
+              background-position: left center;
+              padding-left: rem(30px);
+            }
+            &:hover, &:focus {
+              span {
+                background-image: url('../images/svg/icon_email_v2--white.svg');
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.page-staff-member-order {
+  .view-staff-member {
+    @include center-column($desktop_column);
+    margin-top: rem(50px);
+    table.views-table {
+      width: 100%;
+      font-size: rem(16px);
+      margin: 0 0 10px;
+      border: 1px solid #bebfb9;
+      td, th {
+        padding: rem(10px);
+        a.tabledrag-handle .handle {
+          height: 25px;
+          width: 25px;
+        }
+        a.tabledrag-handle-hover .handle {
+          background-position: 6px -11px;
+        }
+      }
+      .views-field-field-feature-image {
+        width: rem(150px);
+      }
+    }
+    .form-submit {
+      @include button-standard;
+    }
+  }
+}

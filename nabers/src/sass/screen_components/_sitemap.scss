@@ -1,0 +1,23 @@
+#site-map {
+  @include center-column($desktop_column);
+  padding: rem(60px) 0;
+  @include breakpoint(tablet) {
+    padding: rem(70px) 0;
+  }
+  a {
+    @include default-link;
+    font-size: rem(20px);
+  }
+  .site-map-box-front {
+    font-size: rem(18px);
+    margin: rem(10px);
+  }
+  .site-map-menu {
+    padding-left: rem(24px);
+    margin: 0;
+    line-height: 1.5;
+    li {
+      list-style: none;
+    }
+  }
+}

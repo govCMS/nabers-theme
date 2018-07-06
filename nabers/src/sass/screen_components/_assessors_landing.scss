@@ -1,0 +1,420 @@
+.region-content #block-system-main:first-child {
+  .view-assessor-search-api.view-display-id-page:first-child {
+    margin-top: rem(50px);
+    @include breakpoint(large_tablet) {
+      margin-top: rem(70px);
+    }
+  }
+}
+
+.view-assessor-search-api.view-display-id-page {
+  @include center-column($desktop_column);
+  margin-bottom: rem(50px);
+  @include breakpoint(tablet) {
+    padding: 0 $default_padding;
+  }
+  @include breakpoint(large_tablet) {
+    padding: 0 rem($default_padding);
+  }
+  .view-empty {
+    @include center-column($desktop_content_column);
+    margin-top: rem(50px);
+  }
+  .view-header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column-reverse;
+    margin-bottom: rem(25px);
+    @include breakpoint(tablet) {
+      flex-direction: row;
+      padding: rem(25px) rem(10px) 0;
+    }
+    @include breakpoint(desktop) {
+      padding: rem(25px) 0 0;
+    }
+    #find-assessor-clear-search {
+      margin-bottom: rem(25px);
+      @include breakpoint(tablet) {
+        margin-bottom: 0;
+      }
+      a {
+        @include default-link($primary_1, false);
+      }
+    }
+    .views-result-summary {
+      font-size: rem(20px);
+      color: $primary_1;
+      font-family: $primary-font;
+    }
+  }
+  .view-filters {
+    @include breakpoint(tablet) {
+      background-color: $background-grey;
+      padding: rem(25px) rem(20px) 0;
+    }
+    @include breakpoint(large_tablet) {
+      padding: rem(25px) rem(50px) 0;
+    }
+    .search-by {
+      margin-bottom: rem(15px);
+    }
+  }
+  .views-exposed-widgets {
+    margin-bottom: 0;
+  }
+  .views-exposed-widget {
+    width: 100%;
+    padding: 0;
+    .horizontal-tabs {
+      border: none;
+      margin: 0;
+      @include breakpoint(tablet) {
+        height: rem(250px);
+      }
+      @include breakpoint(desktop) {
+        height: rem(225px);
+      }
+    }
+    .horizontal-tabs-list {
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      margin-bottom: rem(-2px);
+      .horizontal-tab-button {
+        float: none;
+        background: none;
+        display: inline-block;
+        font-size: rem(18px);
+        border-right: none;
+        margin-right: rem(10px);
+        min-width: rem(20px);
+        text-align: center;
+        line-height: rem(19px);
+        padding: 0 0 rem(10px);
+        @include breakpoint(tablet) {
+          margin-right: rem(25px);
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+        &:hover {
+          background: none;
+        }
+        &:not(.selected) {
+          a {
+            @include button-invert;
+            font-size: rem(16px);
+            padding: rem(10px) rem(10px);
+            @include breakpoint(tablet) {
+              padding: rem(15px) rem(32px);
+              font-size: rem(18px);
+            }
+          }
+        }
+        &.selected {
+          background-color: $primary_1;
+          border-radius: rem(27px) rem(27px) 0 0;
+          padding-bottom: 0;
+          a {
+            padding: rem(12px);
+            background-color: transparent;
+            color: $white;
+            font-family: $primary-font;
+            font-size: rem(16px);
+            border-radius: rem(27px) rem(27px) 0 0;
+            &:focus {
+              outline: none;
+              box-shadow: inset 0 0 0 2px $focus-yellow;
+            }
+            @include breakpoint(tablet) {
+              padding: rem(16px) rem(34px) rem(26px);
+              font-size: rem(18px);
+            }
+          }
+        }
+        strong {
+          color: inherit;
+          font-weight: 500;
+        }
+      }
+    }
+    .horizontal-tabs-panes {
+      .horizontal-tab-hidden {
+        display: none;
+      }
+      .horizontal-tabs-pane {
+        padding: 0;
+        margin: 0;
+        &.search-by-name {
+          .fieldset-wrapper {
+            justify-content: flex-end;
+            @include breakpoint(large_tablet) {
+              padding-bottom: rem(56px);
+            }
+          }
+          .form-type-item {
+            margin-bottom: rem(26px);
+          }
+        }
+      }
+      .fieldset-wrapper {
+        @include breakpoint(tablet) {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: flex-start;
+        }
+        @include breakpoint(large_tablet) {
+          align-items: center;
+          height: rem(160px);
+        }
+        .form-type-item {
+          background-color: $primary_1;
+          padding: rem(20px);
+          @include breakpoint(tablet) {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: rem(25px);
+          }
+          @include breakpoint(large_tablet) {
+            width: calc(100% - 150px);
+            margin-right: rem(15px);
+          }
+          label {
+            @include visually-hidden;
+          }
+          input, select {
+            background-color: $white;
+            font-family: $primary-font;
+            color: $text-dark-grey;
+            border-radius: rem(27px);
+            appearance: none;
+            font-size: rem(16px);
+            width: 100%;
+            &::-ms-expand {
+              display: none;
+            }
+          }
+          .form-type-select {
+            position: relative;
+            margin-bottom: rem(10px);
+            width: 100%;
+            background: $white url('../images/svg/nav_down_arrow.svg') no-repeat 98% center;
+            border-radius: rem(27px);
+            @include breakpoint(tablet) {
+              width: auto;
+              flex: 1 0 32%;
+              margin-right: rem(15px);
+              background-position: 95% center;
+            }
+            @include breakpoint(large_tablet) {
+              margin-bottom: 0;
+            }
+            &:last-child {
+              margin-right: 0;
+            }
+            select {
+              padding: rem(8px) rem(30px) rem(8px) rem(10px);
+              border: none;
+              border-radius: rem(27px);
+              background: transparent;
+              @include breakpoint(tablet) {
+                padding: rem(8px) rem(30px) rem(8px) rem(20px);
+                font-size: rem(16px);
+              }
+              &:focus {
+                outline: none;
+                box-shadow: 0 0 0 2px $focus-yellow;
+              }
+            }
+          }
+          .form-type-textfield {
+            width: 100%;
+            input {
+              padding: rem(15px) rem(16px);
+              font-size: rem(12px);
+              border-color: $white;
+              @include breakpoint(tablet) {
+                font-size: rem(14px);
+              }
+              @include breakpoint(large_tablet) {
+                padding: rem(12px) rem(16px);
+              }
+            }
+          }
+        }
+        #assessor-filters-details-description {
+          background-color: $background-grey;
+          padding: rem(10px) rem(20px);
+          margin-bottom: rem(25px);
+          @include breakpoint(tablet) {
+            padding: 0;
+            width: calc(100% - 135px);
+          }
+          @include breakpoint(large_tablet) {
+            width: 100%;
+            order: 1;
+          }
+          p {
+            margin-bottom: 0;
+          }
+        }
+        .form-submit {
+          @include button-standard;
+          margin-top: 0;
+          margin-bottom: rem(25px);
+        }
+      }
+    }
+  }
+  .views-row {
+    padding: rem(10px);
+    margin-bottom: rem(15px);
+    @include breakpoint(tablet) {
+      padding: rem(15px) 0;
+      margin-bottom: 0;
+    }
+    &.views-row-odd {
+      background-color: $background-grey;
+    }
+  }
+  .view-table-header {
+    display: none;
+    font-size: rem(12px);
+    font-weight: 600;
+    margin-bottom: rem(20px);
+    @include breakpoint(tablet) {
+      display: flex;
+    }
+    .field {
+      width: calc(100% / 7);
+      padding: 0 rem(10px);
+    }
+  }
+  .node-assessor {
+    &>.content {
+      @include breakpoint(tablet) {
+        display: flex;
+      }
+      &>.field {
+        display: flex;
+        margin-bottom: rem(15px);
+        @include breakpoint(tablet) {
+          flex-direction: column;
+          padding: 0 rem(10px);
+          margin-bottom: 0;
+          width: calc(100% / 7);
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+          word-break: break-word;
+        }
+        .field-label {
+          font-size: rem(12px);
+          font-weight: 600;
+          display: inline-block;
+          width: 30%;
+          @include breakpoint(tablet) {
+            display: none;
+            .no-js & {
+              display: block;
+              margin-bottom: rem(10px);
+            }
+          }
+          &:after {
+            display: inline;
+            content: "\003A";
+            @include breakpoint(tablet) {
+              display: none;
+            }
+          }
+        }
+        .field-items {
+          display: inline-block;
+          font-size: rem(12px);
+          width: 70%;
+          @include breakpoint(tablet) {
+            width: 100%;
+          }
+        }
+      }
+    }
+    .field.assessor-location {
+      &>.field-items {
+        display: flex;
+        width: 70%;
+        flex-wrap: wrap;
+        @include breakpoint(tablet) {
+          width: 100%;
+        }
+        .field {
+          margin-right: rem(5px);
+        }
+      }
+    }
+    .field.assessor-contact {
+      .field-item {
+        padding: rem(6px) 0 rem(6px) rem(30px);
+        background-repeat: no-repeat;
+        background-position: left center;
+      }
+      .field:first-child {
+        .field-item {
+          margin-top: rem(-3px);
+        }
+      }
+      .field-name-field-assessor-mobile {
+        .field-item {
+          background-image: url('../images/svg/icon_mobile.svg');
+          background-position-x: rem(3px);
+        }
+      }
+      .field-name-field-assessor-phone {
+        .field-item {
+          background-image: url('../images/svg/icon_phone.svg');
+          background-position-x: rem(2px);
+        }
+      }
+      .field-name-field-assessor-email {
+        .field-item {
+          background-image: url('../images/svg/icon_email.svg');
+        }
+      }
+    }
+    .field-name-field-assessor-email {
+      word-break: break-all;
+    }
+  }
+  .content, .view-table-header {
+    .field.field-name-field-assessor-availability {
+      @include breakpoint(tablet) {
+        width: rem(90px);
+      }
+    }
+    .field.assessor-name {
+      @include breakpoint(tablet) {
+        min-width: rem(90px);
+      }
+    }
+    .field.field.field-name-field-assessor-building-type, .field.field-name-field-assessor-rating-type {
+      @include breakpoint(tablet) {
+        max-width: rem(140px);
+      }
+    }
+    .field.field.assessor-contact {
+      @include breakpoint(tablet) {
+        width: rem(170px);
+        padding: 0 rem(15px);
+      }
+    }
+  }
+  .content .field.field--empty {
+    .field-items {
+      display: none;
+    }
+  }
+}
+
+#block-bean-assessors-introduction {
+  @include landing-page-introduction-bean;
+}

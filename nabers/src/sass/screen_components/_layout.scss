@@ -1,0 +1,313 @@
+// =========================================================
+// TEXT RESIZE
+// =========================================================
+html {
+  font-size: 18px;
+  &.large-fonts {
+    font-size: $large-font-size;
+  }
+}
+
+// =========================================================
+// GENERAL HEADING LAYOUT
+// =========================================================
+#content {
+  body.not-front & {
+    .content-header {
+      padding-top: rem(40px);
+      padding-bottom: rem(30px);
+      background-color: $background-grey;
+      @include breakpoint(tablet) {
+        padding: rem(50px) 0 rem(35px);
+      }
+      @include breakpoint(large_tablet) {
+        padding: rem(60px) rem(40px) rem(40px);
+      }
+      .content-header-inner {
+        @include center-column($desktop_column);
+        h1 {
+          font-family: $primary-font;
+          font-weight: 400;
+          font-size: rem(30px);
+          color: $default-blue;
+          letter-spacing: -2px;
+          margin-bottom: 0;
+          @include breakpoint(tablet) {
+            font-size: rem(50px);
+          }
+        }
+      }
+      .breadcrumbs {
+        margin-bottom: rem(25px);
+        ul {
+          margin: 0;
+          padding: 0;
+          li {
+            display: inline-block;
+            margin: 0;
+            font-size: rem(12px);
+            @include breakpoint(tablet) {
+              font-size: rem(14px);
+            }
+            a {
+              @include default-link($primary_1, false);
+            }
+            &:after {
+              content: "\003e";
+              display: inline-block;
+              margin: 0 rem(10px);
+              color: $primary_1;
+            }
+            &:last-child {
+              &:after {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+      .content-date {
+        font-family: $primary-font;
+        letter-spacing: -1px;
+        color: $default-blue;
+        margin-top: rem(6px);
+        font-size: rem(18px);
+        @include breakpoint(tablet) {
+          font-size: rem(24px);
+        }
+      }
+    }
+  }
+}
+
+// =========================================================
+// HEADER IMAGE LAYOUT
+// =========================================================
+.content-image {
+  background: linear-gradient(to bottom, $background-grey 20%, $white rem(10px));
+  text-align: center;
+  .field-name-field-image {
+    @include center-column($desktop_column);
+  }
+}
+
+// =========================================================
+// GENERAL BODY LAYOUT
+// =========================================================
+.content-body {
+  &>.messages {
+    max-width: $desktop_column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: $default_padding;
+    margin-bottom: $default_padding;
+  }
+  .node-full>.content {
+    min-height: rem(50px);
+    &>.field.field-name-body>.field-items>.field-item>*:first-child:not(div):not(.toc-filter-top) {
+      @include lead-section;
+    }
+  }
+}
+
+.content-body-inner.has-sidebar {
+  @include center-column($desktop_column);
+  display: flex;
+  flex-wrap: wrap;
+  @include breakpoint(large_tablet) {
+    flex-wrap: nowrap;
+  }
+}
+
+.content-sidebar-first {
+  order: -1;
+  width: 100%;
+  @include breakpoint(large_tablet) {
+    width: rem(330px);
+    min-width: rem(330px);
+    padding-right: rem(60px);
+  }
+}
+
+.content-body-inner {
+  &.has-sidebar {
+    .region-content {
+      width: 100%;
+      @include breakpoint(large_tablet) {
+        max-width: $desktop_column;
+      }
+    }
+    .panel-display {
+      @include panel-display-layouts(desktop);
+    }
+  }
+  &.no-sidebar {
+    .page-node & {
+      .region-content {
+        // Node Pages
+        .node.node-full {
+          &>.submitted {
+            @include center-column($desktop_column);
+          }
+          &>.content {
+            @include center-column($desktop_column);
+          }
+        }
+        // Node Webforms
+        .node-webform {
+          &>.submitted {
+            max-width: $form_width;
+          }
+          &>.content {
+            max-width: $form_width;
+          }
+        }
+      }
+    }
+    .panel-display {
+      @include panel-display-layouts(tablet);
+      // All Columns - Over 2 panels columns to use full column.
+      @include center-column($desktop_column);
+      // One Column (100)
+      &.panel-1col, &.panel-1col-stacked {
+        @include center-column($desktop_column);
+      }
+      // Two Columns (50 50)
+      &.panel-2col, &.panel-2col-bricks, &.panel-2col-stacked {
+        @include center-column($desktop_column);
+      }
+    }
+    #site-map {
+      @include center-column($desktop_column);
+    }
+    .search-api-page-results {
+      @include center-column($desktop_column);
+    }
+    .page-contact & {
+      .block-system {
+        @include center-column($form_width);
+      }
+    }
+    .page-search404 & {
+      .block-system {
+        @include center-column($desktop_column);
+      }
+    }
+    .page-node-done & {
+      .block-system {
+        @include center-column($desktop_column);
+      }
+    }
+  }
+}
+
+// =========================================================
+// MISC ELEMENT STYLING
+// =========================================================
+.more-link, .node-readmore {
+  a {
+    @include default-link($primary_1, true, primary);
+  }
+}
+
+.node-full>.content>.field-name-body {
+  max-width: $desktop_content_column;
+  margin-bottom: rem(50px);
+  @include breakpoint(tablet) {
+    margin: 0 auto rem(50px);
+  }
+  .media, .file-wrapper {
+    @include file-link-style;
+    margin: $base-spacing 0;
+  }
+}
+
+.page-node .node.node-page>.content {
+  a:not(.button) {
+    @include default-link($primary_1, true, primary);
+  }
+  .button {
+    @include button-standard;
+    &.inverted {
+      @include button-invert;
+    }
+  }
+}
+
+a {
+  @include external-link;
+  &[rel~='external']::after {
+    @include ui-kit-external-dark;
+  }
+}
+
+body {
+  background-color: $white;
+  .fixed-width {
+    #header, #nav, #page {
+      @include body-column;
+    }
+  }
+}
+
+#page {
+  margin-top: 83px;
+  @include breakpoint(large_tablet) {
+    margin-top: 146px;
+  }
+  body.navbar-administration:not(.navbar-fixed) & {
+    margin-top: 0;
+  }
+  .field-name-body {
+    // Compensate for the fixed header when the page scrolls to a bookmark anchor.
+    a.toc-bookmark {
+      display: block;
+      position: relative;
+      top: rem(-105px);
+      width: 1px;
+      height: 1px;
+      visibility: hidden;
+      user-select: none;
+      border: none;
+      @include breakpoint(large_tablet) {
+        top: rem(-166px);
+      }
+    }
+  }
+}
+
+img {
+  height: auto;
+}
+
+a, button, input, select, textarea {
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px $focus-yellow;
+  }
+}
+
+.field-type-file {
+  @include file-link-style;
+}
+
+// =========================================================
+// File Attachment LAYOUT
+// =========================================================
+.page-node .node>.content {
+  &>.field-type-file {
+    background-color: $background-grey;
+    padding: rem(40px) 0;
+    margin: 0 auto rem(50px);
+    max-width: calc(#{$desktop_column} - #{rem(200px)});
+    .field-items {
+      @include center-column($desktop_content_column);
+      .field-item {
+        margin: rem(15px) 0;
+      }
+    }
+  }
+  &>.field-name-field-tags {
+    margin-bolttom: rem(50px);
+  }
+}

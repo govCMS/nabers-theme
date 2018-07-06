@@ -1,0 +1,43 @@
+$em-base: 18px;
+$mobile_column_padding: rem(15px);
+$desktop_column: rem(1170px);
+$desktop_content_column: rem(768px);
+$mobile_column: rem(320px);
+$small_padding_px: 15px;
+$default_padding_px: 30px;
+$section-padding-vertical: 90px;
+$small_padding: rem($small_padding_px);
+$default_padding: rem($default_padding_px);
+$listing_component_image_height: 74.32%;
+$form_width: rem(540px);
+$mobile_expand_search_width: rem(36px);
+$desktop_max_slideshow_width: rem(1650px);
+// NABERS Colours
+$default-blue: #0091b3;
+$darker-blue: #007299;
+$background-grey: #f2f1f0;
+$text-grey: #898b8e;
+$text-dark-grey: #4a4a4a;
+$focus-yellow: #ed960a;
+$silver-grey: #cccccc;
+// NABERS Fonts
+$primary-font: "Gotham Rounded SSm A", "Gotham Rounded SSm B";
+// govCMS UI Kit Colours.
+$primary_1: $darker-blue;
+$primary_2: mix(black, $darker-blue, 25); // #193748;
+$primary_3: mix(black, $darker-blue, 25); // #1b3c4e original:(#143D52);
+$secondary_1: $darker-blue; // #146577
+$secondary_2: $darker-blue; // #18788D
+$secondary_3: $darker-blue; // #5BCBE3
+$neutral_1: #313131; // #313131
+$neutral_2: #717171; // #717171
+$neutral_3: #bebebe; // #BEBEBE
+$neutral_4: #f0f3f5; // #F0F3F5
+$main_menu_hover: $default-blue;
+$main_menu_active: $neutral_3;
+$red_error: darken(#cc0000, 5%);
+$border-color-grey: $silver-grey;
+// Focus
+$focus-outline: 2px solid $focus-yellow;
+// Forms
+$search-field-border-radius: rem(27px);

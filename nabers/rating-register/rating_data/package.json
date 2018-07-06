@@ -1,0 +1,14 @@
+{
+  "name": "rating_csv_converter",
+  "version": "1.0.0",
+  "description": "Convert CSV data for use on rating register map.",
+  "main": "convert_data.js",
+  "scripts": {
+    "start": "node convert_data.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "csv-split-easy": "^2.1.0"
+  }
+}

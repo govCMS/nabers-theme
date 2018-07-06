@@ -1,0 +1,7 @@
+name        = NABERS Admin
+description = NABERS Admin theme
+
+core        = 7.x
+base theme  = shiny
+
+stylesheets[all][] = css/nabers_admin.css

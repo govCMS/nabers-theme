@@ -1,0 +1,33 @@
+.rating-details {
+  .actions {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.rating-detail--outer {
+  background-color: #f2f1f0;
+  &.energy {
+    background: #f2f1f0 url(../images/svg/magnifying_glass.svg) top left no-repeat;
+  }
+}
+
+.rating-detail--inner {
+  .energy & {
+    border-left: 5px solid orange;
+  }
+  .water & {
+    border-left: 5px solid dodgerblue;
+  }
+  margin-left: 100px;
+  padding-left: 50px;
+  .row {
+    display: flex;
+    .value {
+      width: 25%;
+    }
+    .label {
+      width: 75%;
+    }
+  }
+}

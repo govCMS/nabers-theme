@@ -1,0 +1,191 @@
+// =========================================================
+// GENERAL FOOTER MENUS
+// =========================================================
+.region-footer {
+  background-color: $background-grey;
+  padding-bottom: 70px;
+  @include breakpoint(desktop) {
+    padding-bottom: 119px;
+  }
+  .block-menu-block {
+    .content {
+      @include center-column($desktop_column);
+      // First level of nav should be horizontal.
+      &>ul.menu, &>.menu-block-wrapper>ul.menu {
+        @include breakpoint(tablet) {
+          display: table;
+          width: 100%;
+          table-layout: fixed;
+          margin-bottom: 0;
+        }
+        &>li {
+          @include breakpoint(tablet) {
+            display: table-cell;
+            margin-bottom: $default_padding;
+          }
+        }
+      }
+      ul.menu {
+        padding-left: 0;
+        margin-bottom: 0;
+        &>li {
+          font-family: $primary-font;
+          letter-spacing: -0.7px;
+          margin-left: 0;
+          margin-right: 0;
+          margin-bottom: $default_padding;
+          padding: 0;
+          list-style: none;
+          margin-bottom: rem(8px);
+          &>a {
+            @include default-link($text-dark-grey, true, dark);
+            font-size: 20px;
+          }
+          &>ul {
+            display: block;
+            padding-left: 0;
+            margin-top: 16px;
+            margin-bottom: 36px;
+            @include breakpoint(tablet) {
+              margin-bottom: 0;
+              margin-top: 0;
+            }
+            @include breakpoint(desktop) {
+              margin-top: rem(22px);
+            }
+            li {
+              a {
+                @include default-link($primary_1, true, primary);
+                font-family: $base-font-family;
+                font-weight: 400;
+                font-size: $em-base;
+                letter-spacing: 0;
+              }
+            }
+            ul {
+              padding-left: $default_padding;
+              margin-top: $default_padding;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// =========================================================
+// ABOVE FOOTER
+// =========================================================
+.content-sidebar-second {
+  background-color: $background-grey;
+  padding-top: rem(70px);
+  padding-bottom: rem(70px);
+  @include breakpoint(tablet) {
+    padding-top: rem(52px);
+    padding-bottom: rem(40px);
+  }
+  @include breakpoint(desktop) {
+    padding-top: rem(60px);
+    padding-bottom: rem(92px);
+  }
+  .region-sidebar-second {
+    @include center-column($desktop_column);
+    @include breakpoint(desktop) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  p {
+    margin-bottom: 0;
+    @include breakpoint(tablet) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .button:not(.inverted) {
+    @include button-invert;
+    margin-right: 0;
+    padding: rem(10px) rem(20px);
+    &:first-child {
+      @include breakpoint(tablet) {
+        margin-right: rem(30px);
+      }
+      @include breakpoint(desktop) {
+        margin-right: rem(15px);
+      }
+    }
+  }
+  .button.inverted {
+    @include button-standard;
+    margin-right: 0;
+    border-color: transparent;
+    padding: rem(10px) rem(20px);
+    @include breakpoint(tablet) {
+      padding: rem(10px) rem(20px);
+    }
+    @include breakpoint(large_tablet) {
+      padding: rem(10px) rem(30px);
+    }
+  }
+  .button {
+    text-align: center;
+    margin-bottom: rem(15px);
+    display: block;
+    font-size: rem(18px);
+    @include breakpoint(tablet) {
+      margin-bottom: auto;
+      text-align: left;
+    }
+    &:last-child {
+      margin-bottom: 0;
+      margin-top: rem(20px);
+      @include breakpoint(tablet) {
+        display: inline-block;
+        margin: 0 0 auto rem(30px);
+      }
+      &:hover, &:focus {
+        background-color: $text-dark-grey;
+      }
+    }
+  }
+}
+
+// =========================================================
+// BELOW FOOTER
+// =========================================================
+.below-footer {
+  @include center-column($desktop_column);
+  padding-top: rem(30px);
+  padding-bottom: rem(30px);
+  .region-below-footer {
+    color: $text-dark-grey;
+    @include breakpoint(desktop) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .bean-basic-content {
+      p {
+        font-size: rem(14px);
+        text-align: left;
+        margin-bottom: rem(30px);
+      }
+      &:last-child {
+        @include breakpoint(desktop) {
+          text-align: right;
+        }
+      }
+    }
+    .block-bean {
+      &:last-child {
+        p {
+          margin-bottom: 0;
+          @include breakpoint(desktop) {
+            margin-bottom: rem(30px);
+          }
+        }
+      }
+    }
+  }
+}

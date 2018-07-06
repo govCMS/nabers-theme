@@ -1,0 +1,56 @@
+#content {
+  .search-form {
+    @include center-column($desktop_column);
+    // 'Page not found' form has small differences from the search page version.
+    .page-search404 & {
+      padding-left: 0;
+      padding-right: 0;
+      .container-inline {
+        display: flex;
+        align-items: flex-end;
+        label {
+          display: block;
+        }
+      }
+    }
+    &>div {
+      .page-search & {
+        display: flex;
+        align-items: flex-end;
+        max-width: $desktop_content_column;
+        position: relative;
+      }
+    }
+    .form-item {
+      margin: 0;
+      // IE 10 Fix - using calc to overcome miscalculation of 100% with flex.
+      width: calc(100% - #{rem(52px)});
+    }
+    input.form-text {
+      @include search-text-field;
+    }
+    input.form-submit {
+      @include search-submit-button;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+}
+
+.page-search {
+  @include search-page;
+  .views-row {
+    padding: rem(30px);
+    background-color: $background-grey;
+    margin-bottom: rem(30px);
+    h2 {
+      @include listing-component-heading;
+      @include default-link;
+      margin: 0 0 rem(20px);
+    }
+    .field-name-body {
+      margin-bottom: 0;
+    }
+  }
+}

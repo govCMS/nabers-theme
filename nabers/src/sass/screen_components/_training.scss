@@ -1,0 +1,248 @@
+// ==============================================
+// General style for training custom bean blocks.
+// ==============================================
+div[id^="block-bean-training-"] {
+  max-width: $desktop_column;
+  padding: rem(50px) rem(15px) 0;
+  @include breakpoint(tablet) {
+    padding: rem(50px) rem(30px) 0;
+  }
+  @include breakpoint(large_tablet) {
+    margin: 0 auto;
+  }
+  h2, &>.content {
+    @include breakpoint(large_tablet) {
+      max-width: $desktop_content_column;
+      margin: 0 auto;
+    }
+  }
+  h2 {
+    font-size: rem(20px);
+    margin-top: 0;
+    margin-bottom: rem(30px);
+    @include breakpoint(tablet) {
+      font-size: rem(30px);
+    }
+  }
+  p:not(.notes) {
+    font-size: rem(16px);
+    line-height: rem(24px);
+    @include breakpoint(tablet) {
+      font-size: rem(20px);
+      line-height: rem(30px);
+    }
+  }
+  &>.content {
+    border-top: rem(1px) solid $border-color-grey;
+    padding-top: rem(30px);
+    a {
+      @include default-link($primary_1, false, primary);
+    }
+  }
+}
+
+// ==============================================
+// General style for training view blocks.
+// ==============================================
+div[id^="block-views-training-block-"] {
+  @include center-column($desktop_column);
+  @include breakpoint(desktop) {
+    padding: 0;
+  }
+  h2 {
+    max-width: $desktop_content_column;
+    color: $text-dark-grey;
+    margin: 0 auto rem(30px);
+    font-size: rem(20px);
+  }
+}
+
+.view.view-training {
+  .view-empty {
+    .button {
+      @include button-invert;
+    }
+  }
+  .view-footer {
+    div.toc-filter-back-to-top {
+      padding-bottom: 0;
+      @include breakpoint(large_tablet) {
+        padding-top: rem(20px);
+      }
+    }
+  }
+  .views-row {
+    width: 100%;
+    margin-bottom: rem(30px);
+    @include breakpoint(tablet) {
+      margin-bottom: rem(40px);
+    }
+  }
+  .node {
+    position: relative;
+    margin: 0;
+    &.has-thumbnail {
+      padding-top: $listing_component_image_height;
+      .field-type-image {
+        @include listing-component-image;
+      }
+    }
+    &>.content {
+      padding: 0;
+    }
+  }
+  .training-details {
+    padding: rem(45px) rem(40px);
+    font-size: rem(16px);
+    color: $primary_1;
+    h2 {
+      margin: rem(5px) 0 rem(30px);
+      color: $text-dark-grey;
+    }
+    .field-name-field-subtitle {
+      font-weight: bold;
+    }
+    .field-name-field-training-building-type {
+      font-weight: bold;
+      color: $text-dark-grey;
+    }
+    .field-name-body {
+      @include listing-component-body;
+      margin: rem(10px) 0 rem(40px);
+    }
+    .field-name-field-training-date, .field-name-field-training-location, .field-name-field-training-cost-type {
+      background-repeat: no-repeat;
+      background-position: left rem(3px);
+      background-size: rem(18px) rem(18px);
+      padding-left: rem(30px);
+      margin-bottom: rem(20px);
+    }
+    .field-name-field-training-date {
+      background-image: url(../images/svg/icon_calendar.svg);
+    }
+    .field-name-field-training-location {
+      background-image: url(../images/svg/icon_location.svg);
+      #block-views-training-block-online.block-views & {
+        background-image: url(../images/svg/icon_online.svg);
+      }
+    }
+    .field-name-field-training-cost-type {
+      background-image: url(../images/svg/icon_fee--free.svg);
+      &.paid {
+        background-image: url(../images/svg/icon_fee.svg);
+      }
+    }
+    .field-name-field-training-cta-link {
+      a {
+        @include default-link($white, true, light);
+        @include button-standard;
+        &.full {
+          @include button-disabled;
+        }
+        &.contact {
+          @include button-invert;
+        }
+        &[rel~='external'] {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+// ==============================================
+// Custom style for individual blocks.
+// ==============================================
+#block-bean-training-anchors {
+  padding: 0 rem(15px);
+  @include breakpoint(tablet) {
+    padding: 0 rem(30px);
+  }
+  @include breakpoint(large_tablet) {
+    max-width: $desktop_content_column+rem(200px);
+    margin-bottom: rem(50px);
+    padding: 0;
+  }
+  .block-content-wrapper {
+    background-color: $background-grey;
+    padding: rem(50px);
+  }
+  h2 {
+    color: $text-dark-grey;
+    margin-top: 0;
+  }
+  p {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .content {
+    border-top: none;
+    padding-top: 0;
+    @include breakpoint(large_tablet) {
+      max-width: $desktop_content_column;
+      margin: 0 auto;
+    }
+    a {
+      @include default-link($primary_1, false, primary);
+    }
+  }
+}
+
+#block-views-training-block-introductory {
+  max-width: $desktop_column;
+  margin: 0 auto;
+  .node {
+    &>.content {
+      @include breakpoint(large_tablet) {
+        display: flex;
+        flex-direction: row-reverse;
+      }
+    }
+    .field-type-image {
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+    .training-details {
+      background-color: $background-grey;
+      @include breakpoint(large_tablet) {
+        min-width: rem(570px);
+      }
+    }
+  }
+}
+
+#block-views-training-block-face-to-face, #block-views-training-block-online {
+  max-width: $desktop_column;
+  margin: 0 auto rem(50px);
+  @include breakpoint(large_tablet) {
+    margin: 0 auto rem(60px);
+  }
+  .view-content {
+    display: flex;
+    flex-wrap: wrap;
+    .views-row {
+      background-color: $background-grey;
+      @include breakpoint(tablet) {
+        width: calc(50% - 10px);
+        margin-right: rem(20px);
+        &:nth-child(2n) {
+          margin-right: 0;
+        }
+      }
+      @include breakpoint(large_tablet) {
+        @include generic-view-row-3;
+        &:nth-child(2n) {
+          margin-right: flex-gutter(12);
+        }
+      }
+    }
+  }
+  .field-name-field-training-cta-link {
+    a {
+      width: 100%;
+    }
+  }
+}

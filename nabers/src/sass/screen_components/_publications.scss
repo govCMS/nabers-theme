@@ -1,0 +1,59 @@
+.page-publications {
+  @include search-page;
+  .view-content {
+    @include breakpoint(tablet) {
+      display: flex;
+      flex-wrap: wrap;
+      flex: 1;
+    }
+  }
+  .views-row {
+    margin-bottom: rem(40px);
+    @include breakpoint(tablet) {
+      display: flex;
+      margin-bottom: rem(30px);
+      margin-right: rem(30px);
+      width: calc(50% - 15px);
+    }
+    &:nth-child(2n) {
+      @include breakpoint(tablet) {
+        margin-right: 0;
+      }
+    }
+    .node {
+      @include listing-component-wrapper-grey;
+      padding: rem(28px);
+      @include breakpoint(tablet) {
+        width: 100%;
+      }
+      h2 {
+        @include listing-component-heading-grey;
+        line-height: rem(30px);
+        margin: 0;
+      }
+      .field-name-field-date, .featured {
+        @include listing-component-subtext-grey;
+        margin: rem(15px) 0;
+      }
+      .featured {
+        margin-top: 0;
+      }
+      .field-name-body {
+        @include listing-component-body;
+        margin-bottom: rem(30px);
+      }
+      a {
+        @include default-link;
+      }
+      &.node-sticky {
+        background-color: $primary_1;
+        .field-item, .featured, a {
+          color: $white;
+        }
+        .field-name-field-tags .field-item {
+          border-color: $white;
+        }
+      }
+    }
+  }
+}

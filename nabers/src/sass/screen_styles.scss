@@ -1,0 +1,72 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700';
+// VENDOR - Placed at the top as variables requires some functions within.
+@import '../../vendor/gov-au-ui-kit/assets/sass/vendor';
+// =========================================================
+// GOV.AU UI-Kit.
+// =========================================================
+@import 'gov_au_ui_kit_mods/variables';
+// Added here to use on UTILS colours.
+@import 'variables';
+@import 'mixins';
+// GOV.AU UI-Kit.
+@import 'gov_au_ui_kit_mods/colours';
+@import '../../vendor/gov-au-ui-kit/assets/sass/utils/mixins';
+@import '../../vendor/gov-au-ui-kit/assets/sass/utils/functions';
+@import '../../vendor/gov-au-ui-kit/assets/sass/utils/accessibility';
+@import '../../vendor/gov-au-ui-kit/assets/sass/utils/grid-settings';
+@import '../../vendor/gov-au-ui-kit/assets/sass/utils/icons';
+@import '../../vendor/gov-au-ui-kit/assets/sass/utils/print';
+// COMPONENTS
+@import '../../vendor/gov-au-ui-kit/assets/sass/components/accordions';
+// @import '../../vendor/gov-au-ui-kit/assets/sass/components/buttons';
+@import 'gov_au_ui_kit_mods/buttons';
+@import '../../vendor/gov-au-ui-kit/assets/sass/components/forms';
+@import '../../vendor/gov-au-ui-kit/assets/sass/components/grid-layout';
+@import '../../vendor/gov-au-ui-kit/assets/sass/components/images';
+// @import '../../vendor/gov-au-ui-kit/assets/sass/components/links';
+@import 'gov_au_ui_kit_mods/links';
+@import '../../vendor/gov-au-ui-kit/assets/sass/components/lists';
+// @import '../../vendor/gov-au-ui-kit/assets/sass/components/navigation';
+@import '../../vendor/gov-au-ui-kit/assets/sass/components/page-footer';
+// @import '../../vendor/gov-au-ui-kit/assets/sass/components/page-header';
+@import '../../vendor/gov-au-ui-kit/assets/sass/components/tables';
+//@import '../../vendor/gov-au-ui-kit/assets/sass/components/typography';
+@import 'gov_au_ui_kit_mods/typography';
+@import '../../vendor/gov-au-ui-kit/assets/sass/components/video';
+// =========================================================
+// NABERS theme (govCMS UI Kit)
+// =========================================================
+@import 'screen_components/listings';
+@import 'screen_components/header';
+@import 'screen_components/navigation';
+@import 'screen_components/layout';
+@import 'screen_components/footer';
+@import 'screen_components/form';
+@import 'screen_components/admin';
+@import 'screen_components/homepage';
+@import 'screen_components/sidebar_navigation';
+@import 'screen_components/block_twitter';
+@import 'screen_components/block_quick_links';
+@import 'screen_components/block_footer_teaser';
+@import 'screen_components/block_footer_submenu';
+@import 'screen_components/block_social_links';
+@import 'screen_components/search';
+@import 'screen_components/news_media_landing';
+@import 'screen_components/contact_form';
+@import 'screen_components/sidemenu';
+@import 'screen_components/skip_link';
+@import 'screen_components/related_pages';
+@import 'screen_components/in_this_section';
+@import 'screen_components/tags';
+@import 'screen_components/facets';
+@import 'screen_components/publications';
+@import 'screen_components/training';
+@import 'screen_components/assessors_landing';
+@import 'screen_components/checkboxes';
+@import 'screen_components/rating_register';
+@import 'screen_components/self_rating_calculators';
+@import 'screen_components/rating_register_detail';
+@import 'screen_components/commitment_agreements_landing';
+@import 'screen_components/staff_profiles';
+@import 'screen_components/data_gallery_landing_page';
+@import 'screen_components/sitemap';

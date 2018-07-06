@@ -1,0 +1,758 @@
+// =========================================================
+// For creating breakpoints.
+// Use in order of smallest to largest:
+// div {
+//   font-size: rem(24);
+//   @include breakpoint(tablet) {
+//     font-size: rem(32);
+//   }
+//   @include breakpoint(desktop) {
+//     font-size: rem(48);
+//   }
+// }
+// =========================================================
+@mixin breakpoint($class) {
+  @if $class==desktop {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+  @else if $class==large_tablet {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  }
+  @else if $class==tablet {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+  @else if $class==mobile {
+    @media (max-width: 420px) {
+      @content;
+    }
+  }
+  @else {
+    @warn "Breakpoint mixin supports: desktop, large_tablet, tablet, mobile";
+  }
+}
+
+// =========================================================
+// For use on full width containers.
+// Centres the content using a max-width as specified.
+// Adds a padding for mobile margins.
+// =========================================================
+@mixin center-column($width) {
+  max-width: $width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $mobile_column_padding;
+  padding-right: $mobile_column_padding;
+  box-sizing: content-box;
+  @include breakpoint(tablet) {
+    padding-left: $default_padding;
+    padding-right: $default_padding;
+  }
+}
+
+@mixin visually-hidden() {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+@mixin transition-fade() {
+  transition-timing-function: $transition-easing;
+  transition-duration: $transition-timing-fast;
+  transition-property: background-color, border-color, color;
+}
+
+@function ui-kit-icon($filename) {
+  @return url("../../vendor/gov-au-ui-kit/assets/img/icons/"+$filename);
+}
+
+@mixin ui-kit-external-light() {
+  background-image: url(../images/svg/external-link--white.svg);
+}
+
+@mixin ui-kit-external-dark() {
+  background-image: url(../images/svg/external-link--grey.svg);
+}
+
+@mixin ui-kit-external-primary() {
+  background-image: url(../images/svg/external-link--blue.svg);
+}
+
+@mixin body-column() {
+  max-width: $desktop_max_slideshow_width;
+  min-width: auto;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin default-section-padding($padding: $section-padding-vertical) {
+  padding: rem($padding) 0;
+}
+
+
+/**
+ * $text-color: [variable]
+ * $add-external-classes: [false, true]
+ * $external-types: [light, dark, primary]
+*/
+
+@mixin default-link($text-color: $primary_1, $add-external-classes: false, $external-type: primary) {
+  color: $text-color;
+  text-decoration: underline;
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+  @if $add-external-classes==true {
+    @include external-link;
+    &[rel~='external']::after {
+      @if ($external-type==primary) {
+        @include ui-kit-external-primary;
+      }
+      @else if ($external-type==light) {
+        @include ui-kit-external-light;
+      }
+      @else if ($external-type==dark) {
+        @include ui-kit-external-dark;
+      }
+    }
+  }
+}
+
+// =========================================================
+// LISTING MIXINS
+// These mixins should be applied to in the following fashion:
+// .view-row {
+//   @include listing-component-wrapper;
+//   h2 {
+//     @include listing-component-heading;
+//   }
+//   .date {
+//     @include listing-component-subtext;
+//   }
+//   .image {
+//     @include listing-component-image;
+//   }
+//   .body {
+//     @include listing-component-body;
+//   }
+// }
+// =========================================================
+@mixin listing-component-wrapper() {
+  box-sizing: border-box;
+  position: relative;
+  background-color: white;
+  max-width: rem(370px);
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+}
+
+@mixin listing-component-image() {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  a {
+    display: block;
+    border-bottom: 0;
+    transition: none;
+    &:hover, &:focus {
+      background-color: black;
+      img {
+        opacity: 0.6;
+      }
+    }
+  }
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+@mixin listing-component-heading() {
+  font-family: $primary-font;
+  font-size: rem(20px);
+  line-height: 1.5em;
+  a {
+    @include default-link($primary_1, true, primary);
+  }
+}
+
+@mixin listing-component-subtext() {
+  font-size: rem(14px);
+  color: $neutral_2;
+  text-transform: uppercase;
+  margin-top: $default_padding;
+  margin-bottom: $default_padding;
+}
+
+@mixin listing-component-body() {
+  color: $body-text-colour;
+  font-size: rem(16px);
+  ul, ol, dl, p, dt, dd {
+    font-size: rem(16px);
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@mixin listing-component-button() {
+  // Default link styling applied.
+}
+
+// Grey Variation (add to default mixins)
+@mixin listing-component-wrapper-grey() {
+  background-color: $background-grey;
+}
+
+@mixin listing-component-heading-grey() {
+  font-size: 20px;
+  a {
+    text-decoration: underline;
+    &:hover, &:focus {
+      text-decoration: none;
+    }
+  }
+}
+
+@mixin listing-component-subtext-grey() {
+  color: $neutral_2;
+  font-size: rem(16px);
+  font-weight: 600;
+  color: $text-dark-grey;
+}
+
+// =========================================================
+// WYSIWYG MIXIN
+// =========================================================
+@mixin wysiwyg() {
+  table {
+    @extend .content-table;
+  }
+  .introduction {
+    font-weight: 300;
+    font-size: rem(22px);
+    line-height: rem(36px);
+  }
+}
+
+@mixin large-title() {
+  color: $primary_1;
+  font-weight: 400;
+  margin-top: 0;
+  text-align: center;
+  font-size: rem(24px);
+  @include breakpoint(tablet) {
+    font-size: rem(30px);
+  }
+}
+
+@mixin medium-title() {
+  color: $primary_1;
+  font-size: rem(30px);
+  font-weight: 400;
+  margin-top: 0;
+}
+
+@mixin block-heading() {
+  color: $neutral_1;
+  font-size: rem(18px);
+  font-weight: 400;
+  @include breakpoint(large_tablet) {
+    @include medium-title;
+  }
+}
+
+// =========================================================
+// SEARCH
+// =========================================================
+@mixin search-text-field() {
+  margin: 0;
+  border: 0;
+  height: rem(52px);
+  padding-left: rem(22px);
+  background-color: $white;
+  z-index: 1;
+  position: relative;
+}
+
+@mixin rounded-search-form-widget() {
+  width: 100%;
+  border: 2px solid $text-grey;
+  border-radius: $search-field-border-radius;
+  background-color: $white;
+  padding: 0;
+  position: relative;
+  html.no-flexbox & {
+    display: table;
+  }
+  .views-exposed-widget {
+    padding: 0;
+    width: 100%;
+    &.views-submit-button {
+      width: auto;
+      margin-right: rem(5px);
+      position: absolute;
+      right: 0;
+      z-index: 1;
+    }
+  }
+  .form-item {
+    input {
+      @include search-text-field;
+      font-size: rem(24px);
+      border-radius: $search-field-border-radius;
+      padding-right: rem(100px);
+      &:focus {
+        outline: 0;
+        box-shadow: inset 0 0 0 2px $focus-yellow;
+      }
+    }
+  }
+  input[type="submit"] {
+    background-color: $primary_1;
+    padding: rem(10px) rem(15px);
+    border-color: $primary_1;
+    border-radius: rem(30px);
+    border-width: 0;
+    margin: rem(6px) 0 0;
+    color: $white;
+    font-family: $primary-font;
+    font-weight: 500;
+    font-size: rem(16px);
+    &:focus, &:hover {
+      background-color: $text-dark-grey;
+    }
+    html.no-flexbox & {
+      display: table-cell;
+    }
+  }
+}
+
+@mixin search-submit-button() {
+  @include hide-text;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  width: rem(40px);
+  height: rem(40px);
+  box-sizing: border-box;
+  border-radius: 100%;
+  background-color: $default-blue;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(../images/svg/magnifying_glass_light.svg);
+  margin-top: rem(6px);
+  margin-right: rem(6px);
+  background-size: rem(22px);
+  &:hover, &:focus {
+    background-color: $darker-blue;
+  }
+  &:focus {
+    z-index: 1;
+  }
+}
+
+// =========================================================
+// PANELS
+// Sidebar / No Sidebar content layouts need different
+// breakpoints. @include and set the breakpoint to use on
+// different sidebar configurations.
+// =========================================================
+@mixin panel-display-layouts($breakpoint) {
+  // Common panel styles
+  .panel-panel {
+    float: none;
+    width: 100%;
+    &>.inside {
+      margin: 0;
+    }
+  }
+  .panel-col-last {
+    @include breakpoint($breakpoint) {
+      @include omega();
+    }
+  }
+  // Two Columns (50 50)
+  &.panel-2col, &.panel-2col-bricks, &.panel-2col-stacked {
+    .panel-col-first, .panel-col-last {
+      @include breakpoint($breakpoint) {
+        @include span-columns(6 of 12);
+      }
+    }
+  }
+  // Three Columns (25 50 25)
+  &.panel-3col, &.panel-3col-stacked {
+    .panel-col-first, .panel-col-last {
+      @include breakpoint($breakpoint) {
+        @include span-columns(3 of 12);
+      }
+    }
+    .panel-col {
+      @include breakpoint($breakpoint) {
+        @include span-columns(6 of 12);
+      }
+    }
+  }
+  // Three Columns (33 33 33)
+  &.panel-3col-33, &.panel-3col-33-stacked {
+    .panel-col-first, .panel-col-last, .panel-col {
+      @include breakpoint($breakpoint) {
+        @include span-columns(4 of 12);
+      }
+    }
+  }
+}
+
+// =========================================================
+// Taxonomy tags style.
+// =========================================================
+@mixin tag-item() {
+  border: 1px solid #979797;
+  border-radius: rem(18px);
+  padding: rem(6px) rem(18px);
+  font-size: rem(16px);
+  color: $text-dark-grey;
+  text-decoration: none;
+  transition-timing-function: $transition-easing;
+  transition-duration: $transition-timing-fast;
+  transition-property: background-color, border-color, color;
+}
+
+// =========================================================
+// Search pages general style.
+// =========================================================
+@mixin search-page() {
+  padding: 0;
+  .content-body-inner {
+    padding-top: rem(50px);
+    @include breakpoint(large_tablet) {
+      padding-top: rem(70px);
+    }
+    &.no-sidebar {
+      @include center-column($desktop_column);
+    }
+  }
+  .view {
+    .search-keyword {
+      @include medium-title;
+      margin: 0 0 rem(30px);
+    }
+    .views-exposed-widgets {
+      @include rounded-search-form-widget;
+    }
+    .view-header, .view-empty {
+      margin: rem(30px) 0;
+      font-size: rem(20px);
+      color: $primary_1;
+    }
+  }
+}
+
+// =========================================================
+// Lead content style.
+// =========================================================
+@mixin lead-section($border-width: 3px, $border-color: #cccccc, $mobile-top-spacing: 30px, $tablet-top-spacing: 50px, $desktop-top-spacing: 70px) {
+  border-top: rem($border-width) solid $border-color;
+  margin-top: rem($mobile-top-spacing);
+  padding-top: rem($mobile-top-spacing);
+  @include breakpoint(tablet) {
+    margin-top: rem($tablet-top-spacing);
+    padding-top: rem($tablet-top-spacing);
+  }
+  @include breakpoint(large_tablet) {
+    margin-top: rem($desktop-top-spacing);
+    padding-top: rem($desktop-top-spacing);
+  }
+}
+
+// =========================================================
+// Apply link style to buttons.
+// =========================================================
+@mixin button-as-link() {
+  background-color: transparent;
+  border: none;
+  color: $primary_1;
+  text-decoration: underline;
+  padding: 0;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// =========================================================
+// Style for a small info icon to toggle popups.
+// =========================================================
+@mixin info-popup-toggle() {
+  text-indent: rem(-9999px);
+  width: rem(18px);
+  height: rem(18px);
+  background-image: url('../images/svg/icon_info.svg');
+  background-repeat: no-repeat;
+  outline: none;
+  cursor: pointer;
+  box-shadow: none;
+  &--expanded {
+    background-image: url('../images/svg/icon_info--grey.svg');
+  }
+  &:focus {
+    position: relative;
+    &:before {
+      display: block;
+      position: absolute;
+      border: $focus-outline;
+      content: " ";
+      border-radius: rem(50px);
+      height: rem(16px);
+      width: rem(16px);
+      top: rem(-2px);
+      left: rem(-2px);
+    }
+  }
+}
+
+// =========================================================
+// Primary font - book style.
+// =========================================================
+@mixin primary-font-book() {
+  font-family: $primary-font;
+  font-weight: 400;
+  font-style: normal;
+}
+
+// =========================================================
+// Style back to top links.
+// =========================================================
+@mixin back-to-top() {
+  border-top: none;
+  margin: 0;
+  width: 100%;
+  text-align: right;
+  padding-bottom: rem(20px);
+  &.first {
+    display: none;
+  }
+  &::before {
+    display: inline-block;
+    content: ' ';
+    background: url("../images/svg/nav_up_arrow.svg") no-repeat;
+    background-size: contain;
+    width: rem(10px);
+    height: rem(10px);
+    margin-right: rem(10px);
+  }
+  & a {
+    @include default-link($primary_1, false);
+    float: none;
+    display: inline;
+    font-size: rem(16px);
+    font-weight: normal;
+  }
+}
+
+// =========================================================
+// Adds a rounded focus outline to elements with rounded corner.
+// =========================================================
+@mixin rounded-corner-focus-outline() {
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px $focus-yellow;
+  }
+}
+
+@mixin tooltip-style() {
+  display: inline;
+  &__toggle {
+    @include info-popup-toggle;
+    margin-left: rem(5px);
+    padding-top: rem(5px);
+    vertical-align: middle;
+    &--expanded {
+      span {
+        display: block;
+        width: rem(20px);
+        height: rem(20px);
+        position: relative;
+        left: rem(2px);
+        top: rem(13px);
+        &::after, &::before {
+          border: solid transparent;
+          content: " ";
+          height: 0;
+          width: 0;
+          position: absolute;
+          pointer-events: none;
+          display: block;
+          z-index: 2;
+        }
+        &::after {
+          border-bottom-color: $background-grey;
+          border-width: rem(6px);
+          top: 2px;
+        }
+        &::before {
+          border-bottom-color: $border-color-grey;
+          border-width: rem(6px);
+          top: 1px;
+        }
+      }
+    }
+  }
+  &__details {
+    background-color: $background-grey;
+    border: 1px solid $border-color-grey;
+    padding: rem(15px);
+    margin: rem(8px) 0 0;
+    position: absolute;
+    z-index: 1;
+    display: none;
+    max-width: rem(550px);
+    @include breakpoint(large_tablet) {
+      padding: rem(20px);
+    }
+    &--show {
+      display: block;
+    }
+    button {
+      background: url('../images/svg/icon_x.svg') no-repeat left center;
+      background-size: contain;
+      text-indent: rem(-9999px);
+      width: rem(8px);
+      height: rem(8px);
+      position: absolute;
+      right: rem(7px);
+      top: rem(10px);
+    }
+    p {
+      font-size: rem(14px);
+      line-height: 1.6;
+      margin-bottom: 0;
+      font-weight: 400;
+      color: $text-dark-grey;
+    }
+    h5 {
+      margin-bottom: rem(5px);
+      font-family: $primary-font;
+      font-weight: 500;
+      font-size: rem(14px);
+      &:empty {
+        display: none;
+      }
+    }
+  }
+}
+
+// =========================================================
+// Style Introduction beans on the following landing pages:
+// - Find an assessor landing page.
+// - Find a commitment agreement landing page.
+// =========================================================
+@mixin landing-page-introduction-bean() {
+  margin: rem(60px) 0;
+  @include breakpoint(large_tablet) {
+    margin: rem(70px) 0;
+  }
+  &>.content {
+    @include center-column($desktop_content_column);
+    .field-name-field-bean-body {
+      @include lead-section($mobile-top-spacing: 0, $tablet-top-spacing: 0, $desktop-top-spacing: 0);
+      p {
+        margin: $small-spacing 0 ($medium-spacing * 1.25);
+        padding-bottom: $medium-spacing;
+        font-size: rem(19);
+        color: $primary_1;
+        font-weight: 500;
+        line-height: rem(34px);
+        @include media($tablet) {
+          font-size: rem(21);
+          padding-bottom: 0;
+        }
+        @include media($desktop) {
+          font-size: rem(24);
+        }
+        &:last-child {
+          padding-bottom: 0;
+          margin-bottom: 0;
+        }
+      }
+      a {
+        @include default-link($primary_1, true, primary);
+      }
+    }
+  }
+}
+
+// =========================================================
+// Style the arrow in rounded select inputs.
+// =========================================================
+@mixin select-down-arrow() {
+  display: inline-block;
+  content: " ";
+  position: absolute;
+  background: url('../images/svg/nav_down_arrow.svg') no-repeat;
+  width: rem(15px);
+  height: rem(12px);
+  top: rem(16px);
+  right: rem(12px);
+  @include breakpoint(tablet) {
+    right: rem(10px);
+  }
+}
+
+// =========================================================
+// Style rounded select inputs.
+// =========================================================
+@mixin select-field() {
+  background-color: transparent;
+  font-family: $primary-font;
+  color: $text-dark-grey;
+  border: none;
+  appearance: none;
+  line-height: 1.2;
+  border-radius: rem(20px);
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+@mixin file-link-style() {
+  span.file {
+    padding-left: rem(40px);
+  }
+  .file {
+    display: block;
+    position: relative;
+    a {
+      @include default-link($primary_1, true, primary);
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-all;
+      /* for webkit support */
+      word-break: break-word;
+      hyphens: auto;
+      margin-right: rem(10px);
+    }
+    .file-icon-wrapper {
+      position: absolute;
+      left: 0;
+      .file-icon {
+        max-height: rem(30px);
+        margin-right: rem(10px);
+        vertical-align: middle;
+      }
+    }
+  }
+}

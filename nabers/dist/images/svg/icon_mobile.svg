@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="23px" viewBox="0 0 14 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ICON - Mobile</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 0 13.9090364 0 13.9090364 23 0 23"></polygon>
+        <polygon id="path-3" points="0 23 14 23 14 0 0 0"></polygon>
+    </defs>
+    <g id="Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="11.2-Find-an-accredited-assessor---results-MOBILE" transform="translate(-123.000000, -1338.000000)">
+            <g id="Group-3-Copy" transform="translate(121.000000, 1338.000000)">
+                <g id="ICON---Mobile" transform="translate(2.000000, 0.000000)">
+                    <g id="Mobile-Icon">
+                        <g id="Group-3">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <g id="Clip-2"></g>
+                            <path d="M2.41103636,1.12195122 C1.68321818,1.12195122 1.09085455,1.73098374 1.09085455,2.47969919 L1.09085455,20.5203008 C1.09085455,21.2690163 1.68321818,21.8780488 2.41103636,21.8780488 L11.4981273,21.8780488 C12.2259455,21.8780488 12.8181273,21.2690163 12.8181273,20.5203008 L12.8181273,2.47969919 C12.8181273,1.73098374 12.2259455,1.12195122 11.4981273,1.12195122 L2.41103636,1.12195122 Z M11.4981273,23 L2.41103636,23 C1.08158182,23 -5.45454545e-05,21.8875854 -5.45454545e-05,20.5203008 L-5.45454545e-05,2.47969919 C-5.45454545e-05,1.11241463 1.08158182,0 2.41103636,0 L11.4981273,0 C12.8275818,0 13.9090364,1.11241463 13.9090364,2.47969919 L13.9090364,20.5203008 C13.9090364,21.8875854 12.8275818,23 11.4981273,23 Z" id="Fill-1" fill="#007299" mask="url(#mask-2)"></path>
+                        </g>
+                        <mask id="mask-4" fill="white">
+                            <use xlink:href="#path-3"></use>
+                        </mask>
+                        <g id="Clip-5"></g>
+                        <polygon id="Fill-4" fill="#007299" mask="url(#mask-4)" points="0.4 19.3035714 13.2 19.3035714 13.2 18.0714286 0.4 18.0714286"></polygon>
+                        <path d="M8,20.5357143 C8,20.9893482 7.6418,21.3571429 7.2,21.3571429 C6.7582,21.3571429 6.4,20.9893482 6.4,20.5357143 C6.4,20.0820804 6.7582,19.7142857 7.2,19.7142857 C7.6418,19.7142857 8,20.0820804 8,20.5357143" id="Fill-6" fill="#007299" mask="url(#mask-4)"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,16 @@
+.field-name-field-tags {
+  max-width: $desktop_content_column;
+  margin-left: auto;
+  margin-right: auto;
+  .field-label {
+    @include visually-hidden;
+  }
+  .field-items {
+    .field-item {
+      display: inline-block;
+      margin-right: rem(10px);
+      margin-bottom: rem(10px);
+      @include tag-item;
+    }
+  }
+}
