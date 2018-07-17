@@ -38,8 +38,7 @@
             const $link = $(this);
             const href = $link.attr('href');
             const isActiveLink = $link.hasClass('facetapi-active');
-            $link.children('span').remove();
-            var label = $link.text();
+            var label = $link.children('span').first().text();
             if (isActiveLink) {
               label = $link.next('.facetapi-label').text();
               // Facetapi  adds filter reset url to the active link.
