@@ -13,6 +13,12 @@
         $tabs.not(':last').after($or);
       }
 
+      const searchQuery = window.location.search;
+      if (searchQuery !== '') {
+        // If filters are selected, scroll to content.
+        document.location.href = "#block-bean-assessors-introduction";
+      }
+
       // Create Assessor table header.
       var $results = $('.view-assessor-search-api .views-row', context);
       if ($results.length > 0) {

@@ -13,6 +13,12 @@
         $tabs.not(':last').after($or);
       }
 
+      const searchQuery = window.location.search;
+      if (searchQuery !== '') {
+        // If filters are selected, scroll to content.
+        document.location.href = "#block-bean-assessors-introduction";
+      }
+
       // Create Assessor table header.
       var $results = $('.view-assessor-search-api .views-row', context);
       if ($results.length > 0) {
@@ -87,10 +93,10 @@
             }));
           });
           $select.on('change', function() {
-            const href = $(this).val();
-            var redirect = new Drupal.facetapi.Redirect(href);
-            redirect.gotoHref();
-          });
+            const href = $(this).val()
+            const redirect = new Drupal.facetapi.Redirect(href)
+            redirect.gotoHref()
+          })
           $facet.find('.content').append($select);
           $ul.remove();
           $filterLabel.remove();
@@ -117,6 +123,12 @@
         $tabs.not(':last').after($or);
       }
 
+      const searchQuery = window.location.search;
+      if (searchQuery !== '') {
+        // If filters are selected, scroll to content.
+        document.location.href = '#block-bean-commitment-agreements-intro';
+      }
+
       // Create commitment agreement table header.
       var $results = $('.view-commitment-agreements .views-row', context);
       if ($results.length > 0) {
@@ -130,6 +142,23 @@
         $tableHeader.addClass('view-table-header');
         $results.first().before($tableHeader);
       }
+
+      // Show "clear search" button when filters/search term are active.
+      let showClearSearch = false
+      if (window.location.search !== '') {
+        const queryParams = window.location.search.substring(1).split('&')
+        const searchParams = ['f%5B', 'building', 'signatory']
+        for (let i = 0; i < queryParams.length; i++) {
+          const param = queryParams[i].split('=')
+          for (let j = 0; j < searchParams.length; j++) {
+            if (param[0].indexOf(searchParams[j]) > -1) {
+              showClearSearch = true
+              break;
+            }
+          }
+        }
+      }
+      $('#commitment-agreements-clear-search').toggle(showClearSearch)
     }
   };
 

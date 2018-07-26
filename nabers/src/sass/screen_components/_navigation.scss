@@ -236,6 +236,9 @@ $menu_lvl_4_background: $menu_lvl_3_background_hover;
         &:nth-child(2n) {
           margin-right: flex-gutter(12);
         }
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
       }
       .node {
         @include listing-component-wrapper;

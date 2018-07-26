@@ -200,6 +200,9 @@ div[id^="block-views-training-block-"] {
       }
     }
     .field-type-image {
+      @include breakpoint(large_tablet) {
+        width: #{(rem(600px) / $desktop_column)*100%};
+      }
       img {
         display: block;
         width: 100%;
@@ -208,7 +211,7 @@ div[id^="block-views-training-block-"] {
     .training-details {
       background-color: $background-grey;
       @include breakpoint(large_tablet) {
-        min-width: rem(570px);
+        width: calc(#{(rem(570px) / $desktop_column)*100%} - 80px);
       }
     }
   }

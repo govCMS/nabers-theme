@@ -53,10 +53,10 @@
             }));
           });
           $select.on('change', function() {
-            const href = $(this).val();
-            var redirect = new Drupal.facetapi.Redirect(href);
-            redirect.gotoHref();
-          });
+            const href = $(this).val()
+            const redirect = new Drupal.facetapi.Redirect(href)
+            redirect.gotoHref()
+          })
           $facet.find('.content').append($select);
           $ul.remove();
           $filterLabel.remove();
