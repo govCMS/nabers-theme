@@ -408,6 +408,9 @@ MarkerClusterer.prototype.getCalculator = function() {
 MarkerClusterer.prototype.addMarkers = function(markers, opt_nodraw) {
   if (markers.length) {
     for (var i = 0, marker; marker = markers[i]; i++) {
+      //  NABERS: Don't display markers with 0,0 Lat|Lng (e.g. Data centres)
+      if (!marker.position.lat() && !marker.position.lng())
+        continue;
       this.pushMarkerTo_(marker);
     }
   } else if (Object.keys(markers).length) {
