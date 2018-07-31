@@ -13,10 +13,11 @@
         $tabs.not(':last').after($or);
       }
 
-      const searchQuery = window.location.search;
-      if (searchQuery !== '') {
+      const IntroBlockID = '#block-bean-commitment-agreements-intro'
+      const searchQuery = window.location.search
+      if ($(IntroBlockID).length > 0 && searchQuery !== '') {
         // If filters are selected, scroll to content.
-        document.location.href = '#block-bean-commitment-agreements-intro';
+        document.location.href = IntroBlockID
       }
 
       // Create commitment agreement table header.
