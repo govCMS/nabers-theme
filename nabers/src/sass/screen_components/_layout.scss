@@ -216,6 +216,13 @@ html {
   @include breakpoint(tablet) {
     margin: 0 auto rem(50px);
   }
+  .node-type-data-gallery & {
+    @include breakpoint(tablet) {
+      margin-left: 0;
+      margin-right: 0;
+      max-width: 100%;
+    }
+  }
   .media, .file-wrapper {
     @include file-link-style;
     margin: $base-spacing 0;
