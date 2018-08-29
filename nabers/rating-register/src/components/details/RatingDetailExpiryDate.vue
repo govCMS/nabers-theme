@@ -11,7 +11,7 @@
   export default {
     methods: {
       niceDate: function(date) {
-        const formattedDate = moment(date, 'YYYY-MM-DD').format('DD MMMM YYYY')
+        const formattedDate = moment(date, 'DD/MM/YYYY hh:mm:ss a').format('DD MMMM YYYY')
         return formattedDate != 'Invalid date' ? formattedDate : 'N/A';
       },
     },

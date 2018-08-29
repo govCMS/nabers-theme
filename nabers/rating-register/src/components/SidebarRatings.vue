@@ -141,7 +141,7 @@ export default {
       return rtn;
     },
     formattedDate: function(date) {
-      return moment(date, 'YYYY-MM-DD H:mm:ss').format('D MMM YYYY');
+      return moment(date, 'DD/MM/YYYY hh:mm:ss a').format('D MMM YYYY');
     },
     getRatingTypeClassName: function(ratingType) {
       return ratingType.replace(/\s+/g, '-').toLowerCase();
