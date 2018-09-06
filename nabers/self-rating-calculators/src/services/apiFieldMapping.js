@@ -24,7 +24,7 @@ const apiInputsMapping = {
     'Electricity': 'totalElectricityUse',
     'GreenPower': 'greenPowerPercentage',
     'Gas': 'totalNaturalGas',
-    'Diesel': 'total_diesel',
+    'Diesel': 'totalDieselUse',
     'Coal': 0,
     'LPG': 0,
     'HeatRejection': 0,

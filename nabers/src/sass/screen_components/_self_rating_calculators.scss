@@ -391,6 +391,50 @@
     .notes {
       margin-top: rem(20px);
     }
+    .more-details-panel {
+      margin-top: rem(30px);
+      p {
+        font-size: rem(12px);
+        padding: 0;
+        margin: 0;
+      }
+    }
+    .more-details-button-row {
+      padding-top: 0;
+    }
+    &__more-details {
+      @include button-invert;
+      width: auto;
+      margin-top: rem(25px);
+      &:hover, &:focus {
+        color: $primary_1;
+        background-color: transparent;
+      }
+      &:focus {
+        outline: none;
+        position: relative;
+        &:before {
+          display: inline-block;
+          position: absolute;
+          content: " ";
+          width: calc(100% + 8px);
+          height: calc(100% + 8px);
+          border: $focus-outline;
+          top: rem(-4px);
+          left: rem(-4px);
+          border-radius: rem(50px);
+        }
+      }
+      span {
+        background: url('../images/svg/icon_plus.svg') no-repeat center left;
+        padding-left: rem(18px);
+      }
+      &.details-expanded {
+        span {
+          background-image: url('../images/svg/icon_minus.svg');
+        }
+      }
+    }
   }
   .action-buttons {
     display: flex;

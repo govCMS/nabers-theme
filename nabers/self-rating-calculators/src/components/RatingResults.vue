@@ -30,6 +30,25 @@
           <div v-if="isBuildingType('apartment_building')" class="notes">
             This is an estimate only. Metering arrangements, and services that are shared with other strata schemes, such as common areas, pools, and lifts, will affect your real rating.
           </div>
+
+          <div v-if="expanded" class="more-details-panel">
+            <h5>{{ getValue('GreenpowerPercentage') }} % GreenPower</h5>
+            <template v-if="inputs.greenPowerPercentage > 0">
+              <p><strong>{{ getValue('GreenhouseGasEmissionsScope12') }} kg CO2-e p.a.</strong>	Total greenhouse gas emissions, scope 1 and 2 with GreenPower</p>
+              <p><strong>{{ getValue('GreenhouseGasEmissionsScope123') }} kg CO2-e p.a.</strong>	Total greenhouse gas emissions, scope 1, 2 and 3 with GreenPower</p>
+              <p><strong>{{ getValue('GreenhouseGasIntensityScope12') }} kg CO2-e/m2 p.a.</strong>	Greenhouse gas intensity, scope 1 and 2 with GreenPower</p>
+              <p><strong>{{ getValue('GreenhouseGasIntensityScope123') }} kg CO2-e/m2 p.a.</strong>	Greenhouse gas intensity, scope 1, 2 and 3 with GreenPower</p>
+              <p><strong>{{ getValue('BenchmarkingFactor') }}</strong>			Benchmarking factor with GreenPower</p>
+            </template>
+            <template v-else>
+              <p><strong>{{ getValue('NoGreenPowerGHGIntensityScope12') }} kg CO2-e p.a.</strong>	Total greenhouse gas emissions, scope 1 and 2 without GreenPower</p>
+              <p><strong>{{ getValue('NoGreenPowerGHGEmissionsScope123') }} kg CO2-e p.a.</strong>	Total greenhouse gas emissions, scope 1, 2 and 3 without GreenPower</p>
+              <p><strong>{{ getValue('NoGreenPowerGHGIntensityScope12') }} kg CO2-e/m2 p.a.</strong>	Greenhouse gas intensity, scope 1 and 2 without GreenPower</p>
+              <p><strong>{{ getValue('NoGreenPowerGHGIntensityScope123') }} kg CO2-e/m2 p.a.</strong>	Greenhouse gas intensity, scope 1, 2 and 3 without GreenPower</p>
+              <p><strong>{{ getValue('NoGreenPowerBenchmarkingFactor') }}</strong>			Benchmarking factor without GreenPower</p>
+            </template>
+          </div>
+
         </div>
       </template>
 
@@ -122,6 +141,10 @@
 
         </div>
       </template>
+
+      <div class="rating-result more-details-button-row">
+        <more-details-button @toggle="toggle()" class="rating-results__more-details" :expanded="expanded">{{ expanded ? 'Less' : 'More' }} details</more-details-button>
+      </div>
     </div>
     <div class="action-buttons">
       <a href="/find-accredited-assessor" class="button">Find an accredited assessor</a>
@@ -131,15 +154,25 @@
 
 <script>
   import ToolTip from "./ToolTip"
+  import MoreDetailsButton from './elements/MoreDetailsButton'
 
   export default {
     components: {
       ToolTip: ToolTip,
+      'more-details-button': MoreDetailsButton,
     },
     data: function () {
-      return {}
+      return {
+        expanded: false,
+      }
     },
     methods: {
+      toggle: function() {
+        this.expanded = !this.expanded;
+      },
+      expandedClass: function() {
+        return this.expanded ? 'is-expanded' : 'is-collapsed';
+      },
       isRatingType: function(value) {
         return this.selection.ratingType == value;
       },
