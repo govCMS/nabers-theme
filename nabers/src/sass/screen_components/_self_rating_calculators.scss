@@ -391,6 +391,104 @@
     .notes {
       margin-top: rem(20px);
     }
+    .more-details-panel {
+      margin-top: rem(30px);
+      text-align: left;
+      .row {
+        background-color: #e7e7e7;
+        padding: rem(15px) rem(20px) rem(15px);
+        &:nth-child(even) {
+          background-color: $background-grey;
+        }
+        &--green {
+          color: $color-row-green;
+        }
+        &--blue {
+          color: $color-row-blue;
+        }
+        &--tooltip.row {
+          .rr-tooltip {
+            vertical-align: text-top;
+          }
+          .label {
+            font-weight: 600;
+            font-size: rem(12px);
+            color: $primary_1;
+          }
+        }
+        @include breakpoint(tablet) {
+          display: flex;
+          justify-content: flex-start;
+        }
+        .value {
+          font-size: rem(13px);
+          @include breakpoint(tablet) {
+            width: 35%;
+            padding-right: rem(50px);
+          }
+        }
+        .label {
+          font-size: rem(13px);
+          @include breakpoint(tablet) {
+            width: 65%;
+            font-size: rem(13px);
+          }
+        }
+      }
+      .row--group {
+        display: block;
+        .row {
+          background-color: transparent;
+          padding: 0 0 rem(15px);
+          &:last-child {
+            padding-bottom: 0;
+          }
+          @include breakpoint(tablet) {
+            display: flex;
+            padding: 0;
+          }
+        }
+      }
+    }
+    .more-details-button-row {
+      padding-top: 0;
+    }
+    &__more-details {
+      @include button-invert;
+      width: auto;
+      margin-top: rem(25px);
+      &:hover, &:focus {
+        color: $primary_1;
+        background-color: transparent;
+      }
+      &:focus {
+        outline: none;
+        position: relative;
+        &:before {
+          display: inline-block;
+          position: absolute;
+          content: " ";
+          width: calc(100% + 8px);
+          height: calc(100% + 8px);
+          border: $focus-outline;
+          top: rem(-4px);
+          left: rem(-4px);
+          border-radius: rem(50px);
+        }
+      }
+      span {
+        background: url('../images/svg/icon_plus.svg') no-repeat center left;
+        padding-left: rem(18px);
+      }
+      &.details-expanded {
+        span {
+          background-image: url('../images/svg/icon_minus.svg');
+        }
+      }
+    }
+    .tooltip {
+      @include tooltip-style;
+    }
   }
   .action-buttons {
     display: flex;

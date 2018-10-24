@@ -6,10 +6,10 @@
         <h3>What is the total Gross Lettable Area Retail (GLAR) of the shopping centre?</h3>
         <fieldset>
           <label>
-            <input v-validate="'required|integer'" name="grossLettableAreaRetail" type="text" v-model.number="inputs.grossLettableAreaRetail"/>
+            <input v-validate="'required|decimal:1'" name="grossLettableAreaRetail" type="text" v-model.number="inputs.grossLettableAreaRetail"/>
             m<sup>2</sup>
           </label>
-          <error-message  v-if="errors.has('grossLettableAreaRetail')">Please enter a numeric value for the total Gross Lettable Area Retail (GLAR)</error-message>
+          <error-message  v-if="errors.has('grossLettableAreaRetail')">Please enter a numeric value up to 1 decimal place</error-message>
         </fieldset>
         <h3>How many food court seats are there within the shopping centre?</h3>
         <fieldset>
@@ -56,20 +56,20 @@
         <h3>Total water consumption for 12 months</h3>
         <fieldset>
           <label>
-            <input v-validate="'required|decimal:2'" name="totalWaterUse"  type="text" v-model.number="inputs.totalWaterUse"/>
+            <input v-validate="'required|decimal:1'" name="totalWaterUse"  type="text" v-model.number="inputs.totalWaterUse"/>
             kL
           </label>
-          <error-message  v-if="errors.has('totalWaterUse')">Please enter a numeric value for the total water use</error-message>
+          <error-message  v-if="errors.has('totalWaterUse')">Please enter a numeric value up to 1 decimal place</error-message>
           <small>Include mains and groundwater sources. Exclude rain water captured onsite.</small>
         </fieldset>
 
         <h3>What percentage of the total water consumption is externally supplied recycled water?</h3>
         <fieldset>
           <label>
-            <input v-validate="'required|integer'" name="recycledWaterPercentage" type="text" v-model.number="calculateRecycledWater"/>
+            <input v-validate="'required|decimal:1|max_value:100'" name="recycledWaterPercentage" type="text" v-model.number="calculateRecycledWater"/>
             %
           </label>
-          <error-message  v-if="errors.has('recycledWaterPercentage')">Please enter the percentage of recycled water</error-message>
+          <error-message  v-if="errors.has('recycledWaterPercentage')">Please enter a numeric value up to 1 decimal place</error-message>
         </fieldset>
       </div>
 

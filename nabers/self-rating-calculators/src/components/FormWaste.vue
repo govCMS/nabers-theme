@@ -47,10 +47,10 @@
             <label>
               <span>Total weight</span>
               <span class="input-with-suffix">
-                <input v-validate="'integer'" :name="'tw_' + selectedOption" type="text" v-model="inputs.wasteWeights[selectedOption]"/> kg
+                <input v-validate="'decimal:1'" :name="'tw_' + selectedOption" type="text" v-model="inputs.wasteWeights[selectedOption]"/> kg
               </span>
             </label>
-            <error-message v-if="errors.has('tw_' + selectedOption)">Please enter a numeric value</error-message>
+            <error-message v-if="errors.has('tw_' + selectedOption)">Please enter a numeric value up to 1 decimal place</error-message>
           </fieldset>
         </template>
       </template>
@@ -67,10 +67,10 @@
             <label>
               <span>Contamination rate</span>
               <span class="input-with-suffix">
-                <input v-validate="'integer|max_value:100'" :name="'cr_' + index" type="text" v-model="inputs.wasteContaminationRates[index]"/> %
+                <input v-validate="'decimal:1|max_value:100'" :name="'cr_' + index" type="text" v-model="inputs.wasteContaminationRates[index]"/> %
               </span>
             </label>
-            <error-message v-if="errors.has('cr_' + index)">Please enter a valid percentage</error-message>
+            <error-message v-if="errors.has('cr_' + index)">Please enter a percentage up to 1 decimal place</error-message>
           </fieldset>
         </template>
       </template>

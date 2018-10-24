@@ -19,8 +19,8 @@ if (typeof Drupal != 'undefined') {
 }
 else {
   // If we aren't in Drupal, use the test api.
-  API.apiURL = 'https://test.nabers.gov.au/api/ratingcalculator/Calculate'
-  API.authURL = 'https://test.nabers.gov.au/authserver/token'
+  API.apiURL = 'https://api.nabers.gov.au/ratingcalculator/calculate'
+  API.authURL = 'https://auth.nabers.gov.au/token'
   API.clientID = 'RatingCalculatorApi'
   API.clientSecret = 'NabersRatingCalculator'
 }
