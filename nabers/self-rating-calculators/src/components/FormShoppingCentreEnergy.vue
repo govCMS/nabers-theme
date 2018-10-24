@@ -22,19 +22,19 @@
         <h3>What is the total Gross Lettable Area Retail (GLAR) of the shopping centre?</h3>
         <fieldset>
           <label>
-            <input v-validate="'required|integer'" name="grossLettableAreaRetail" type="text" v-model.number="inputs.grossLettableAreaRetail"/>
+            <input v-validate="'required|decimal:1'" name="grossLettableAreaRetail" type="text" v-model.number="inputs.grossLettableAreaRetail"/>
             m<sup>2</sup>
           </label>
-          <error-message  v-if="errors.has('grossLettableAreaRetail')">Please enter a numeric value for the total Gross Lettable Area Retail (GLAR)</error-message>
+          <error-message  v-if="errors.has('grossLettableAreaRetail')">Please enter a numeric value up to 1 decimal place</error-message>
         </fieldset>
 
         <h3>What is the total centrally serviced area of the shopping centre?</h3>
         <fieldset>
           <label>
-            <input v-validate="'required|integer'" name="totalCentrallyServicedArea" type="text" v-model.number="inputs.totalCentrallyServicedArea"/>
+            <input v-validate="'required|decimal:1'" name="totalCentrallyServicedArea" type="text" v-model.number="inputs.totalCentrallyServicedArea"/>
             m<sup>2</sup>
           </label>
-          <error-message  v-if="errors.has('totalCentrallyServicedArea')">Please enter a numeric value for total centrally serviced area</error-message>
+          <error-message  v-if="errors.has('totalCentrallyServicedArea')">Please enter a numeric value up to 1 decimal place</error-message>
           <small>Enter the total GLAR of all tenancies that are provided with air conditioning services from the shopping centre plant.</small>
         </fieldset>
 
@@ -82,30 +82,40 @@
       <h3>Total electricity use for 12 months</h3>
       <fieldset>
         <label>
-          <input v-validate="'required|decimal:2'" name="totalElectricityUse" type="text" v-model.number="inputs.totalElectricityUse"/>
+          <input v-validate="'required|decimal:1'" name="totalElectricityUse" type="text" v-model.number="inputs.totalElectricityUse"/>
           kWh
         </label>
-        <error-message  v-if="errors.has('totalElectricityUse')">Please enter a numeric value for the total electricity use</error-message>
+        <error-message  v-if="errors.has('totalElectricityUse')">Please enter a numeric value up to 1 decimal place</error-message>
       </fieldset>
 
       <h3>What percentage of the total electricity use is GreenPower?</h3>
       <fieldset>
         <label>
-          <input v-validate="'required|integer'" name="greenPowerPercentage" type="text" v-model.number="inputs.greenPowerPercentage"/>
+          <input v-validate="'required|decimal:1|max_value:100'" name="greenPowerPercentage" type="text" v-model.number="inputs.greenPowerPercentage"/>
           %
         </label>
-        <error-message  v-if="errors.has('greenPowerPercentage')">Please enter the percentage of GreenPower</error-message>
+        <error-message  v-if="errors.has('greenPowerPercentage')">Please enter a numeric value up to 1 decimal place</error-message>
         <small>Enter the percentage of accredited GreenPower shown on your electricity bill.</small>
       </fieldset>
 
       <h3>Total natural gas use for 12 months</h3>
       <fieldset>
         <label>
-          <input v-validate="'required|integer'" name="totalNaturalGas" type="text" v-model.number="inputs.totalNaturalGas"/>
+          <input v-validate="'required|decimal:1'" name="totalNaturalGas" type="text" v-model.number="inputs.totalNaturalGas"/>
           MJ
         </label>
-        <error-message  v-if="errors.has('totalNaturalGas')">Please enter a numeric value for natural gas use</error-message>
+        <error-message  v-if="errors.has('totalNaturalGas')">Please enter a numeric value up to 1 decimal place</error-message>
       </fieldset>
+
+      <h3>Total diesel use for 12 months</h3>
+      <fieldset>
+        <label>
+          <input v-validate="'required|decimal:1'" name="totalDieselUse" type="text" v-model.number="inputs.totalDieselUse"/>
+          L
+        </label>
+        <error-message v-if="errors.has('totalDieselUse')">Please enter a numeric value up to 1 decimal place</error-message>
+      </fieldset>
+
   </div>
     <submit-button  :awaitingAPIResponse="awaitingAPIResponse" />
   </form>

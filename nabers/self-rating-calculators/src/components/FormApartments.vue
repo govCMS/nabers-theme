@@ -140,7 +140,7 @@
           <h3>Total water consumption for 12 months</h3>
           <fieldset>
             <label>
-              <input v-validate="'required|decimal:2'" name="totalWaterUse" type="text" v-model.number="inputs.totalWaterUse"/>
+              <input v-validate="'required|decimal:1'" name="totalWaterUse" type="text" v-model.number="inputs.totalWaterUse"/>
               kL
             </label>
             <error-message  v-if="errors.has('totalWaterUse')">Please enter a numeric value for the total water use</error-message>
@@ -152,7 +152,7 @@
               <input v-validate="'required|integer'" name="recycledWaterPercentage" type="text" v-model.number="calculateRecycledWater" class="half-width"/>
               %
             </label>
-            <error-message  v-if="errors.has('recycledWaterPercentage')">Please enter the percentage of recycled water</error-message>
+            <error-message  v-if="errors.has('recycledWaterPercentage')">Please enter a numeric value up to 1 decimal place</error-message>
           </fieldset>
         </div>
       </div>
@@ -165,18 +165,18 @@
         <h3>Total electricity use for 12 months</h3>
         <fieldset>
           <label>
-            <input v-validate="'required|decimal:2'" name="totalElectricityUse" type="text" v-model.number="inputs.totalElectricityUse"/>
+            <input v-validate="'required|decimal:1'" name="totalElectricityUse" type="text" v-model.number="inputs.totalElectricityUse"/>
             kWh
           </label>
-          <error-message  v-if="errors.has('totalElectricityUse')">Please enter a numeric value for the total electricity use</error-message>
+          <error-message  v-if="errors.has('totalElectricityUse')">Please enter a numeric value up to 1 decimal place</error-message>
         </fieldset>
         <h3>What percentage of the total electricity use is GreenPower?</h3>
         <fieldset>
           <label>
-            <input v-validate="'required|integer'" name="greenPowerPercentage" type="text" v-model.number="inputs.greenPowerPercentage" class="half-width"/>
+            <input v-validate="'required|decimal:1|max_value:100'" name="greenPowerPercentage" type="text" v-model.number="inputs.greenPowerPercentage" class="half-width"/>
             %
           </label>
-          <error-message  v-if="errors.has('greenPowerPercentage')">Please enter the percentage of accredited GreenPower</error-message>
+          <error-message  v-if="errors.has('greenPowerPercentage')">Please enter a numeric value up to 1 decimal place</error-message>
           <small>Enter the percentage of accredited GreenPower shown on your electricity bill.</small>
         </fieldset>
         <h3>Total natural gas use for 12 months</h3>

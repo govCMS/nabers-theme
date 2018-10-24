@@ -393,10 +393,61 @@
     }
     .more-details-panel {
       margin-top: rem(30px);
-      p {
-        font-size: rem(12px);
-        padding: 0;
-        margin: 0;
+      text-align: left;
+      .row {
+        background-color: #e7e7e7;
+        padding: rem(15px) rem(20px) rem(15px);
+        &:nth-child(even) {
+          background-color: $background-grey;
+        }
+        &--green {
+          color: $color-row-green;
+        }
+        &--blue {
+          color: $color-row-blue;
+        }
+        &--tooltip.row {
+          .rr-tooltip {
+            vertical-align: text-top;
+          }
+          .label {
+            font-weight: 600;
+            font-size: rem(12px);
+            color: $primary_1;
+          }
+        }
+        @include breakpoint(tablet) {
+          display: flex;
+          justify-content: flex-start;
+        }
+        .value {
+          font-size: rem(13px);
+          @include breakpoint(tablet) {
+            width: 35%;
+            padding-right: rem(50px);
+          }
+        }
+        .label {
+          font-size: rem(13px);
+          @include breakpoint(tablet) {
+            width: 65%;
+            font-size: rem(13px);
+          }
+        }
+      }
+      .row--group {
+        display: block;
+        .row {
+          background-color: transparent;
+          padding: 0 0 rem(15px);
+          &:last-child {
+            padding-bottom: 0;
+          }
+          @include breakpoint(tablet) {
+            display: flex;
+            padding: 0;
+          }
+        }
       }
     }
     .more-details-button-row {
@@ -434,6 +485,9 @@
           background-image: url('../images/svg/icon_minus.svg');
         }
       }
+    }
+    .tooltip {
+      @include tooltip-style;
     }
   }
   .action-buttons {

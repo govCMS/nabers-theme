@@ -68,13 +68,13 @@
         <div class="row row--group">
           <!--[GHGEmissionsScope123] CO₂-e p.a. - Label: Total greenhouse gas emissions with GreenPower-->
           <div class="row row--green" v-if="!empty('GHGEmissionsScope123')">
-            <div class="value">{{ rating.GHGEmissionsScope123 }} CO₂-e p.a.</div>
+            <div class="value">{{ rating.GHGEmissionsScope123 }} kg CO₂-e p.a.</div>
             <div v-if="isOffice()" class="label">Total greenhouse gas emissions, scope 1, 2, and 3 with GreenPower <tooltip><template slot="tooltip-body">Scope 1 is emissions that are a direct result of activity at the building. Scopes 2 and 3 are indirect emissions, linked to the building, but generated in the wider economy. For example, emissions caused by the burning of coal to produce the electricity that this building uses and the transmission and distribution losses.</template></tooltip></div>
             <div v-else class="label">Total greenhouse gas emissions with GreenPower</div>
           </div>
           <!--[GHGEmissionsScope123NoGP] CO₂-e p.a. - Label: Total greenhouse gas emissions without GreenPower-->
           <div class="row" v-if="!empty('GHGEmissionsScope123NoGP')">
-            <div class="value">{{ rating.GHGEmissionsScope123NoGP }} CO₂-e p.a.</div>
+            <div class="value">{{ rating.GHGEmissionsScope123NoGP }} kg CO₂-e p.a.</div>
             <div v-if="isOffice()" class="label">Total greenhouse gas emissions, scope 1, 2, and 3 without GreenPower <tooltip><template slot="tooltip-body">Scope 1 is emissions that are a direct result of activity at the building. Scopes 2 and 3 are indirect emissions, linked to the building, but generated in the wider economy. For example, emissions caused by the burning of coal to produce the electricity that this building uses and the transmission and distribution losses.</template></tooltip></div>
             <div v-else class="label">Total greenhouse gas emissions without GreenPower</div>
           </div>
@@ -83,11 +83,11 @@
         <template v-if="isHotel()">
           <div class="row row--group">
             <div class="row row--green" v-if="!empty('GHGEmissionsScope123PerRoom')">
-              <div class="value">{{ rating.GHGEmissionsScope123PerRoom }} CO₂-e/room p.a.</div>
+              <div class="value">{{ rating.GHGEmissionsScope123PerRoom }} kg CO₂-e/room p.a.</div>
               <div class="label">Total greenhouse gas emissions per room with GreenPower</div>
             </div>
             <div class="row" v-if="!empty('GHGEmissionsScope123PerRoomNoGP')">
-              <div class="value">{{ rating.GHGEmissionsScope123PerRoomNoGP }} CO₂-e/room p.a.</div>
+              <div class="value">{{ rating.GHGEmissionsScope123PerRoomNoGP }} kg CO₂-e/room p.a.</div>
               <div class="label">Total greenhouse gas emissions per room without GreenPower</div>
             </div>
           </div>
@@ -96,12 +96,12 @@
         <template v-else-if="isShoppingCentre()" class="row-group">
           <div class="row row--group">
             <div class="row row--green" v-if="!empty('GHGEmissionsScope123PerM2')">
-              <div class="value">{{ rating.GHGEmissionsScope123PerM2 }} CO₂-e/m² p.a.</div>
+              <div class="value">{{ rating.GHGEmissionsScope123PerM2 }} kg CO₂-e/m² p.a.</div>
               <div class="label">Total greenhouse gas emissions per m² GLAR <tooltip><template slot="tooltip-body">Gross Lettable Area Retail</template></tooltip> with GreenPower</div>
             </div>
             <!--[GHGEmissionsScope123PerM2NoGP] CO₂-e/m² p.a. Label: Total greenhouse gas emissions per m² without GreenPower-->
             <div class="row" v-if="!empty('GHGEmissionsScope123PerM2NoGP')">
-              <div class="value">{{ rating.GHGEmissionsScope123PerM2NoGP }} CO₂-e/m² p.a.</div>
+              <div class="value">{{ rating.GHGEmissionsScope123PerM2NoGP }} kg CO₂-e/m² p.a.</div>
               <div class="label">Total greenhouse gas emissions per m² GLAR <tooltip><template slot="tooltip-body">Gross Lettable Area Retail</template></tooltip> without GreenPower</div>
             </div>
           </div>
@@ -111,12 +111,12 @@
           <div v-if="!empty('GHGEmissionsScope123PerM2') || !empty('GHGEmissionsScope123PerM2NoGP')" class="row row--group">
             <!--[GHGEmissionsScope123PerM2] CO₂-e/m² p.a. - Label: Total greenhouse gas emissions per m² with GreenPower-->
             <div class="row row--green" v-if="!empty('GHGEmissionsScope123PerM2')">
-              <div class="value">{{ rating.GHGEmissionsScope123PerM2 }} CO₂-e/m² p.a.</div>
+              <div class="value">{{ rating.GHGEmissionsScope123PerM2 }} kg CO₂-e/m² p.a.</div>
               <div class="label">Total greenhouse gas emissions per m² with GreenPower</div>
             </div>
             <!--[GHGEmissionsScope123PerM2NoGP] CO₂-e/m² p.a. Label: Total greenhouse gas emissions per m² without GreenPower-->
             <div class="row" v-if="!empty('GHGEmissionsScope123PerM2NoGP')">
-              <div class="value">{{ rating.GHGEmissionsScope123PerM2NoGP }} CO₂-e/m² p.a.</div>
+              <div class="value">{{ rating.GHGEmissionsScope123PerM2NoGP }} kg CO₂-e/m² p.a.</div>
               <div class="label">Total greenhouse gas emissions per m² without GreenPower</div>
             </div>
           </div>
@@ -125,28 +125,28 @@
       <!--If [EnergyGreenPower] = NO , show-->
       <template v-else>
           <div class="row" v-if="!empty('GHGEmissionsScope123NoGP')">
-            <div class="value">{{ rating.GHGEmissionsScope123NoGP }} CO₂-e p.a.</div>
+            <div class="value">{{ rating.GHGEmissionsScope123NoGP }} kg CO₂-e p.a.</div>
             <div v-if="isOffice()" class="label">Total greenhouse gas emissions, scope 1, 2, and 3 <tooltip><template slot="tooltip-body">Scope 1 is emissions that are a direct result of activity at the building. Scopes 2 and 3 are indirect emissions, linked to the building, but generated in the wider economy. For example, emissions caused by the burning of coal to produce the electricity that this building uses and the transmission and distribution losses.</template></tooltip></div>
             <div v-else class="label">Total greenhouse gas emissions</div>
           </div>
           <!--//  HOTEL-->
           <template v-if="isHotel()">
             <div class="row" v-if="!empty('GHGEmissionsScope123PerRoomNoGP')">
-              <div class="value">{{ rating.GHGEmissionsScope123PerRoomNoGP }} CO₂-e/room p.a.</div>
+              <div class="value">{{ rating.GHGEmissionsScope123PerRoomNoGP }} kg CO₂-e/room p.a.</div>
               <div class="label">Total greenhouse gas emissions per room</div>
             </div>
           </template>
           <!--//  SHOPPING CENTRE-->
           <template v-if="isShoppingCentre()">
             <div class="row" v-if="!empty('GHGEmissionsScope123PerM2NoGP')">
-              <div class="value">{{ rating.GHGEmissionsScope123PerM2NoGP }} CO₂-e/m² p.a.</div>
+              <div class="value">{{ rating.GHGEmissionsScope123PerM2NoGP }} kg CO₂-e/m² p.a.</div>
               <div class="label">Total greenhouse gas emissions per m² GLAR <tooltip><template slot="tooltip-body">Gross Lettable Area Retail</template></tooltip></div>
             </div>
           </template>
           <!--//  OTHERS-->
           <template v-else>
             <div class="row" v-if="!empty('GHGEmissionsScope123PerM2NoGP')">
-              <div class="value">{{ rating.GHGEmissionsScope123PerM2NoGP }} CO₂-e/m² p.a.</div>
+              <div class="value">{{ rating.GHGEmissionsScope123PerM2NoGP }} kg CO₂-e/m² p.a.</div>
               <div class="label">Total greenhouse gas emissions per m²</div>
             </div>
           </template>

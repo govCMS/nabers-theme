@@ -6,19 +6,19 @@
         <h3>What is the processing capacity of the data centre?</h3>
         <fieldset>
           <label>
-            <input v-validate="'required|decimal:2'" name="processing_capacity" type="text" v-model.number="inputs.processingCapacity"/>
+            <input v-validate="'required|decimal:1'" name="processing_capacity" type="text" v-model.number="inputs.processingCapacity"/>
             GHz
           </label>
-          <error-message  v-if="errors.has('processing_capacity')">Please enter a numeric value for the processing capacity of the data centre</error-message>
+          <error-message  v-if="errors.has('processing_capacity')">Please enter a numeric value up to 1 decimal place</error-message>
           <small>Enter the sum of the server clock speed (in GHz) multiplied by the number of cores for every server.</small>
         </fieldset>
         <h3>What is the storage capacity of the data centre?</h3>
         <fieldset>
           <label>
-            <input v-validate="'required|decimal:2'" name="storage_capacity" type="text" v-model.number="inputs.storageCapacity"/>
+            <input v-validate="'required|decimal:1'" name="storage_capacity" type="text" v-model.number="inputs.storageCapacity"/>
             TB
           </label>
-          <error-message  v-if="errors.has('storage_capacity')">Please enter a numeric value for the storage capacity of the data centre</error-message>
+          <error-message  v-if="errors.has('storage_capacity')">Please enter a numeric value up to 1 decimal place</error-message>
           <small>Enter the sum of the unformatted storage terabytes for all storage devices.</small>
         </fieldset>
       </div>
@@ -31,19 +31,19 @@
         <h3>What is the total energy consumed by the IT equipment over the 12 month period?</h3>
         <fieldset>
           <label>
-            <input v-validate="'required|decimal:2'" name="total_energy_consumed" type="text" v-model.number="inputs.totalEnergyConsumed"/>
+            <input v-validate="'required|decimal:1'" name="total_energy_consumed" type="text" v-model.number="inputs.totalEnergyConsumed"/>
             kWh/year
           </label>
-          <error-message  v-if="errors.has('total_energy_consumed')">Please enter a numeric value for the total energy consumed</error-message>
+          <error-message  v-if="errors.has('total_energy_consumed')">Please enter a numeric value up to 1 decimal place</error-message>
           <small>IT equipment includes computer servers, storage equipment and network equipment.</small>
         </fieldset>
         <h3>What is the total data centre electricity use for 12 months?</h3>
         <fieldset>
           <label>
-            <input v-validate="'required|decimal:2'" name="total_data_centre_electricity" type="text" v-model.number="inputs.totalDataCentreElectricity"/>
+            <input v-validate="'required|decimal:1'" name="total_data_centre_electricity" type="text" v-model.number="inputs.totalDataCentreElectricity"/>
             kWh
           </label>
-          <error-message  v-if="errors.has('total_data_centre_electricity')">Please enter a numeric value for total data centre electricity use</error-message>
+          <error-message  v-if="errors.has('total_data_centre_electricity')">Please enter a numeric value up to 1 decimal place</error-message>
         </fieldset>
       </template>
 
@@ -51,10 +51,10 @@
         <h3>Total electricity use for 12 months</h3>
         <fieldset>
           <label>
-            <input v-validate="'required|decimal:2'" name="totalElectricityUse" type="text" v-model.number="inputs.totalElectricityUse"/>
+            <input v-validate="'required|decimal:1'" name="totalElectricityUse" type="text" v-model.number="inputs.totalElectricityUse"/>
             kWh
           </label>
-          <error-message  v-if="errors.has('totalElectricityUse')">Please enter a numeric value for total electricity use</error-message>
+          <error-message  v-if="errors.has('totalElectricityUse')">Please enter a numeric value up to 1 decimal place</error-message>
         </fieldset>
       </template>
 
@@ -72,20 +72,20 @@
         <h3>Total electricity use during this period</h3>
         <fieldset>
           <label>
-            <input v-validate="'required|decimal:2'" name="totalElectricityUse" type="text" v-model.number="inputs.totalElectricityUse"/>
+            <input v-validate="'required|decimal:1'" name="totalElectricityUse" type="text" v-model.number="inputs.totalElectricityUse"/>
             kWh
           </label>
-          <error-message  v-if="errors.has('totalElectricityUse')">Please enter a numeric value for total electricity use</error-message>
+          <error-message  v-if="errors.has('totalElectricityUse')">Please enter a numeric value up to 1 decimal place</error-message>
         </fieldset>
       </template>
 
       <h3>What percentage of the total electricity use is GreenPower?</h3>
       <fieldset>
         <label>
-          <input v-validate="'required|decimal:2'" name="greenPowerPercentage" type="text" v-model.number="inputs.greenPowerPercentage" class="half-width"/>
+          <input v-validate="'required|decimal:1|max_value:100'" name="greenPowerPercentage" type="text" v-model.number="inputs.greenPowerPercentage" class="half-width"/>
           %
         </label>
-        <error-message  v-if="errors.has('greenPowerPercentage')">Please enter a numeric value for the percentage of GreenPower use</error-message>
+        <error-message  v-if="errors.has('greenPowerPercentage')">Please enter the percentage up to 1 decimal place</error-message>
         <small>Enter the percentage of accredited GreenPower shown on your electricity bill.</small>
       </fieldset>
 
@@ -94,10 +94,10 @@
         <h3 v-else>What is the total data centre diesel use for 12 months?</h3>
         <fieldset>
           <label>
-            <input v-validate="'required|decimal:2'" name="total_diesel" type="text" v-model.number="inputs.totalDiesel"/>
+            <input v-validate="'required|decimal:1'" name="total_diesel" type="text" v-model.number="inputs.totalDiesel"/>
             L
           </label>
-          <error-message  v-if="errors.has('total_diesel')">Please enter a numeric value for the total data centre diesel use</error-message>
+          <error-message  v-if="errors.has('total_diesel')">Please enter a numeric value up to 1 decimal place</error-message>
         </fieldset>
       </template>
     </div>

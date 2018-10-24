@@ -4,7 +4,7 @@ const apiInputsMapping = {
   'TotalComputerCount': 'numberOfComputers',
   'AAAStarRating': 'qualityStarRating',
   'TotalGuestRooms': 'numberOfRooms',
-  'GuestRoomsLaunderService': 'percentageFullService',
+  'GuestRoomsLaunderService': 'roomsFullService',
   'FunctionRoomSeats': 'functionRoomSeats',
   'HeatedPoolsSurfaceArea': 'surfaceAreaHeatedPools',
   'FloorConfiguration': 'multiStorey',
