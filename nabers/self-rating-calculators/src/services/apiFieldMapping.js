@@ -15,7 +15,7 @@ const apiInputsMapping = {
   'ParkingSpacesMechanical': 'mechanicallyVentilatedCarSpaces',
   'ParkingSpacesNatural': 'naturallyVentilatedCarSpaces',
   'ProcessingCapacity': 'processingCapacity',
-  'StorageCapacity': 'StorageCapacity',
+  'StorageCapacity': 'storageCapacity',
   'NoOfDays': 'daysOfEnergyData',
   'FoodCourtSeats': 'foodCourtSeats',
   'CinemaTheatres': 'cinemaTheatrettes',
@@ -28,7 +28,7 @@ const apiInputsMapping = {
     'Coal': 0,
     'LPG': 0,
     'HeatRejection': 0,
-    'ITEnergy': 'total_energy_consumed'
+    'ITEnergy': 'totalITEnergyConsumed'
   },
   'WaterInputs': {
     'Water': 'totalWaterUse',

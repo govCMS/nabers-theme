@@ -12,7 +12,7 @@
             <p>The energy intensity of the shopping centre is {{ getValue('energyIntensity') }} MJ/m<sup>2</sup>.</p>
           </template>
           <template v-else-if="isBuildingType('hotel')">
-            <p>The total energy use of each room is {{ getValue('totalEnergyUse') }} MJ/room p.a.</p>
+            <p>The total energy use of each room is {{ getValue('energyIntensity') }} MJ/room p.a.</p>
           </template>
           <template v-else-if="isBuildingType('apartment_building')">
             <p>The total estimated energy use is {{ getValue('totalEnergyUse') }} MJ p.a.</p>
@@ -153,11 +153,11 @@
             </div>
             <div v-if="isBuildingType('hotel')" class="row row--group">
               <div class="row row--green" v-if="inputs.recycledWaterPercentage > 0">
-                <div class="value">{{ getValue('normalisedWaterConsumption') }} kL/room² p.a.</div>
+                <div class="value">{{ getValue('normalisedWaterConsumption') }} kL/room p.a.</div>
                 <div class="label">Total water consumption per room with recycled water </div>
               </div>
               <div class="row">
-                <div class="value">{{ getValue('noRecycleNormalisedWaterConsumption') }} kL/room² p.a.</div>
+                <div class="value">{{ getValue('noRecycleNormalisedWaterConsumption') }} kL/room p.a.</div>
                 <div class="label">Total water consumption per room without recycled water</div>
               </div>
             </div>

@@ -31,19 +31,19 @@
         <h3>What is the total energy consumed by the IT equipment over the 12 month period?</h3>
         <fieldset>
           <label>
-            <input v-validate="'required|decimal:1'" name="total_energy_consumed" type="text" v-model.number="inputs.totalEnergyConsumed"/>
+            <input v-validate="'required|decimal:1'" name="totalITEnergyConsumed" type="text" v-model.number="inputs.totalITEnergyConsumed"/>
             kWh/year
           </label>
-          <error-message  v-if="errors.has('total_energy_consumed')">Please enter a numeric value up to 1 decimal place</error-message>
+          <error-message  v-if="errors.has('totalITEnergyConsumed')">Please enter a numeric value up to 1 decimal place</error-message>
           <small>IT equipment includes computer servers, storage equipment and network equipment.</small>
         </fieldset>
         <h3>What is the total data centre electricity use for 12 months?</h3>
         <fieldset>
           <label>
-            <input v-validate="'required|decimal:1'" name="total_data_centre_electricity" type="text" v-model.number="inputs.totalDataCentreElectricity"/>
+            <input v-validate="'required|decimal:1'" name="totalElectricityUse" type="text" v-model.number="inputs.totalElectricityUse"/>
             kWh
           </label>
-          <error-message  v-if="errors.has('total_data_centre_electricity')">Please enter a numeric value up to 1 decimal place</error-message>
+          <error-message  v-if="errors.has('totalElectricityUse')">Please enter a numeric value up to 1 decimal place</error-message>
         </fieldset>
       </template>
 
@@ -63,10 +63,10 @@
         <h3>Exactly how many days energy data will you enter?</h3>
         <fieldset>
           <label>
-            <input v-validate="'required|integer|min_value:28|max_value:40'" name="days_of_energy_data" type="text" v-model.number="inputs.daysOfEnergyData"/>
+            <input v-validate="'required|integer|min_value:28|max_value:40'" name="daysOfEnergyData" type="text" v-model.number="inputs.daysOfEnergyData"/>
             days
           </label>
-          <error-message  v-if="errors.has('days_of_energy_data')">Please enter a number between 28-40</error-message>
+          <error-message  v-if="errors.has('daysOfEnergyData')">Please enter a number between 28-40</error-message>
           <small>This must be between 28-40 days.</small>
         </fieldset>
         <h3>Total electricity use during this period</h3>
@@ -94,10 +94,10 @@
         <h3 v-else>What is the total data centre diesel use for 12 months?</h3>
         <fieldset>
           <label>
-            <input v-validate="'required|decimal:1'" name="total_diesel" type="text" v-model.number="inputs.totalDiesel"/>
+            <input v-validate="'required|decimal:1'" name="totalDieselUse" type="text" v-model.number="inputs.totalDieselUse"/>
             L
           </label>
-          <error-message  v-if="errors.has('total_diesel')">Please enter a numeric value up to 1 decimal place</error-message>
+          <error-message  v-if="errors.has('totalDieselUse')">Please enter a numeric value up to 1 decimal place</error-message>
         </fieldset>
       </template>
     </div>

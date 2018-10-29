@@ -110,7 +110,7 @@ export default class Results {
       'base_building': 'Base',
       'tenancy': 'Tenancy',
       'infrastructure': 'Infrastructure',
-      'it_equipment': 'IT Equipment'
+      'it_equipment': 'ITEquipment'
     }
     return ratingScopeMapping[ratingScope] !== undefined ? ratingScopeMapping[ratingScope] : ''
   }
